@@ -1,0 +1,8 @@
+Background = #f2f7f5;
+Headline = #00473e;
+Paragraph = #475d5b;
+Button = #faae2b;
+Button text = #00473e;
+Stroke = #00332c;
+Secondary = #ffa8ba;
+Tertiary = #fa5246;

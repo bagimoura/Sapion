@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="../../CSS/receitas/exibir_receitas.css">
+        <link rel="shortcut icon" href="../../IMGS/favicon.svg" type="image/png">
+        <title>Exibir Receita</title>
+    </head>
+    <body>
+        <header>
+            <div class="navbar">
+
+                <img src = "../../IMGS/logo.png" class="logo">
+
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+
+                <ul>
+                    <li><a href="../base/home.html" class="lista">Página Inicial</a></li>
+                    <li><a href="../base/categorias.html" class="lista">Categorias</a></li>
+                    <li><a href="../base/sobre.html" class="lista">Sobre o Portal</a></li>
+                    <li class="hide" id="menu-perfil"><a href="../base/perfil.html" class="lista">Perfil</a></li>
+                </ul>
+
+                <div class="search-container">
+                    <input type="text" id="barra-pesquisa" placeholder="pesquisar" class="search-bar">
+                    <div id="lista-menu" class="sugestoes-box"></div>
+                </div>
+                
+
+                <button type="submit" class="menu-svg" id="pesquisar-btn">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                    </svg>
+                </button>
+
+                <div id="menu-login" class="show">
+                    <a href="../base/login.html">
+
+                        <button class="menu-svg">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                                <circle cx="12" cy="7" r="4"/>
+                            </svg>
+                            <span>Entrar</span>
+                        </button>
+                    </a>
+                </div>
+
+
+                <!-- <div id="menu-logout" class="hide">
+                    <button id="btn-logout" class="menu-svg">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
+                            <polyline points="16 17 21 12 16 7"></polyline>
+                            <line x1="21" y1="12" x2="9" y2="12"></line>
+                        </svg>
+                        <span>Sair</span>
+                    </button>
+                </div> -->
+
+                <div id="menu-add" class="hide">
+                    <a href="cadastrar_receita.html"> 
+                        <button class="menu-svg btn-orange">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <line x1="12" y1="5" x2="12" y2="19"></line>
+                                <line x1="5" y1="12" x2="19" y2="12"></line>
+                            </svg>
+                            <span>Novo</span>
+                        </button>
+                    </a>
+                </div>
+
+            </div>
+        </header>
+        <main>
+            <div class="container-principal">
+                <a href="javascript:history.back()" class="btn-voltar">← Voltar</a>
+
+                <div class="pagina-receita">
+                    
+                    <header class="cabecalho-receita">
+                        <h1 class="titulo-prato" id="v-nome">Carregando...</h1>
+                        
+                        <div class="detalhes-meta">
+                            <span class="meta-item">⏱ <span id="v-tempo">--</span> min</span>
+                            <span class="meta-item">🍽 <span id="v-porcoes">--</span> Porções</span>
+                            <span class="meta-item">🔥 Dificuldade: <span id="v-dificuldade">--</span></span>
+                        </div>
+                    </header>
+
+                    <div class="banner-receita">
+                        <img id="v-foto" src="" alt="Foto da Receita">
+                    </div>
+
+                    <div class="corpo-receita">
+                        
+                        <aside class="ingredientes-box">
+                            <h2>Ingredientes</h2>
+                            <ul class="lista-ingredientes" id="v-ingredientes"></ul>
+                        </aside>
+
+                        <section class="preparo-box">
+                            <h2>Modo de Preparo</h2>
+                            <ol class="lista-preparo" id="v-preparo"></ol>
+                        </section>
+
+                    </div>
+                </div>
+            </div>
+            <section class="hide" id="avaliacao-container">
+                <form id="form-avaliacao" class="avaliacao">
+
+                    <div>
+                        <label for="comentario">Gostou da Receita? Deixe sua avaliação: </label>
+                        <textarea id="comentario" name="comentario" rows="4" required></textarea>
+                    </div>
+
+                    <div id="estrelas-container" class="stars" data-stars="1">
+                        <svg height="25" width="23" class="star rating" data-rating="1">
+                            <polygon points="9.9, 1.1, 3.3, 21.78, 19.8, 8.58, 0, 8.58, 16.5, 21.78" style="fill-rule:nonzero;"/>
+                        </svg>
+                        <svg height="25" width="23" class="star rating" data-rating="2">
+                            <polygon points="9.9, 1.1, 3.3, 21.78, 19.8, 8.58, 0, 8.58, 16.5, 21.78" style="fill-rule:nonzero;"/>
+                        </svg>
+                        <svg height="25" width="23" class="star rating" data-rating="3">
+                            <polygon points="9.9, 1.1, 3.3, 21.78, 19.8, 8.58, 0, 8.58, 16.5, 21.78" style="fill-rule:nonzero;"/>
+                        </svg>
+                        <svg height="25" width="23" class="star rating" data-rating="4">
+                            <polygon points="9.9, 1.1, 3.3, 21.78, 19.8, 8.58, 0, 8.58, 16.5, 21.78" style="fill-rule:nonzero;"/>
+                        </svg>
+                        <svg height="25" width="23" class="star rating" data-rating="5">
+                            <polygon points="9.9, 1.1, 3.3, 21.78, 19.8, 8.58, 0, 8.58, 16.5, 21.78" style="fill-rule:nonzero;"/>
+                        </svg>
+                    </div>
+                    
+                    <button type="submit" id="enviar-avaliacao">Enviar</button>
+                </form>
+            </section>
+
+            <section id="comentarios-publicados" style="margin-top: 20px;">
+            </section>
+        </main>
+        <hr>
+
+        <footer>
+            <p>&copy; ARQPGW2 - 2025. Todos os direitos reservados.</p>
+        </footer>
+
+        <script src="../../JS/receitas/cadastro_receitas.js"></script>
+        <script src="../../JS/receitas/exibir_receitas.js"></script>
+        <script src="../../JS/base/main.js"></script>
+        <script src="../../JS/base/pesquisar.js"></script>
+
+    </body>
+</html>

@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="../../CSS/base/home.css">
+        <link rel="shortcut icon" href="../../IMGS/favicon.svg" type="image/png">
+        <title>Página Inicial</title>
+    </head>
+    <body>
+        <header>
+            <div class="navbar">
+                <img src = "../../IMGS/logo.png" class="logo">
+
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+
+                <ul>
+                    <li><a href="home.html" class="lista">Página Inicial</a></li>
+                    <li><a href="categorias.html" class="lista">Categorias</a></li>
+                    <li><a href="sobre.html" class="lista">Sobre o Portal</a></li>
+                    <li class="hide" id="menu-perfil"><a href="perfil.html" class="lista">Perfil</a></li>
+                </ul>
+                
+                <div class="search-container">
+                    <input type="text" id="barra-pesquisa" placeholder="pesquisar" class="search-bar">
+                    <div id="lista-menu" class="sugestoes-box"></div>
+                </div>
+
+                <button type="submit" class="menu-svg" id="pesquisar-btn">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                    </svg>
+                </button>
+
+                <div id="menu-login" class="show">
+                    <a href="login.html">
+
+                        <button class="menu-svg">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                                <circle cx="12" cy="7" r="4"/>
+                            </svg>
+                            <span>Entrar</span>
+                        </button>
+                    </a>
+                </div>
+
+
+                <!-- <div id="menu-logout" class="hide">
+                    <button id="btn-logout" class="menu-svg">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
+                            <polyline points="16 17 21 12 16 7"></polyline>
+                            <line x1="21" y1="12" x2="9" y2="12"></line>
+                        </svg>
+                        <span>Sair</span>
+                    </button>
+                </div> -->
+
+                <div id="menu-add" class="hide">
+                    <a href="../receitas/cadastrar_receita.html"> <button class="menu-svg btn-orange">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <line x1="12" y1="5" x2="12" y2="19"></line>
+                                <line x1="5" y1="12" x2="19" y2="12"></line>
+                            </svg>
+                            <span>Novo</span>
+                        </button>
+                    </a>
+                </div>
+
+            </div>
+        </header>
+
+
+        <main>
+                <section class="container-slides">
+
+                    <div class="slide">
+                        <img src="https://images.unsplash.com/photo-1544025162-d76694265947?q=80&w=1920&auto=format&fit=crop" alt="Destaque 1">
+                        <div class="texto-slide">
+                            <h1>Costela Barbecue</h1>
+                            <p>O prato mais acessado da semana! Suculenta e desmancha na boca.</p>
+                            <a href="../../HTML/receitas/costela-barbecue.html" class="botao-slide">Ver Receita</a>
+                        </div>
+                    </div>
+
+                    <div class="slide">
+                        <img src="https://images.unsplash.com/photo-1563379926898-05f4575a45d8?q=80&w=1920&auto=format&fit=crop" alt="Destaque 2">
+                        <div class="texto-slide">
+                            <h1>Massas</h1>
+                            <p>Aprenda a fazer massas incríveis!</p>
+                            <a href="../../HTML/categorias/massas.html" class="botao-slide">Ver Categoria</a>
+                        </div>
+                    </div>
+
+                    <div class="slide">
+                        <img src="https://i.pinimg.com/1200x/6a/8e/a8/6a8ea8d41d41591819c089fab6f1faa7.jpg" alt="Destaque 3">
+                        <div class="texto-slide">
+                            <h1>Especial de Natal</h1>
+                            <p>Surpreenda sua família com receitas incríveis nesta data especial.</p>
+                            <a href="categorias.html#natal" class="botao-slide">Especial de Natal</a>
+                        </div>
+                    </div>
+
+                    <a class="anterior" onclick="mudarSlide(-1)">&#10094;</a>
+                    <a class="proximo" onclick="mudarSlide(1)">&#10095;</a>
+
+                    <div class="container-pontos">
+                        <span class="ponto" onclick="slideAtual(1)"></span>
+                        <span class="ponto" onclick="slideAtual(2)"></span>
+                        <span class="ponto" onclick="slideAtual(3)"></span>
+                    </div>
+
+                </section>
+               
+                <div class="barra-busca-grande">
+                    <input type="text" id="barra-pesquisa-grande" placeholder="O que deseja cozinhar hoje?">
+                    <div id="lista-grande" class="sugestoes-box"></div>
+                    <button>Pesquisar</button>
+                </div>
+
+                <h4>Descubra</h4>
+                <div class="menu-bolinhas">
+                    <div class="item-receita">
+                        <img src="../../IMGS/categorias/sobremesas/bolo-chocolate.png" class="foto-bolinha" alt="Bolo de Chocolate">
+                        <span class="nome-receita">Bolo de Chocolate</span>
+                    </div>
+
+                    <div class="item-receita">
+                        <img src="../../IMGS/categorias/sobremesas/red-velvet.png" class="foto-bolinha" alt="Red Velvet">
+                        <span class="nome-receita">Red Velvet</span>
+                    </div>
+
+                    <div class="item-receita">
+                        <img src="../../IMGS/categorias/saladas/salada-caesar.png" class="foto-bolinha" alt="Salada Caesar">
+                        <span class="nome-receita">Salada Caesar</span>
+                    </div>
+
+                    <div class="item-receita">
+                        <img src="../../IMGS/categorias/sopas/canja-galinha.png" class="foto-bolinha" alt="Canja de Galinha">
+                        <span class="nome-receita">Canja de Galinha</span>
+                    </div>
+
+                    <div class="item-receita">
+                        <img src="../../IMGS/categorias/massas/pizza-calabresa.png"  class="foto-bolinha" alt="Pizza Calabresa">
+                        <span class="nome-receita">Pizza Calabresa</span>
+                    </div>
+
+                </div>
+
+                <h3>Bombando!</h3>
+                <section class="secoes">
+                
+                <div class="card" style="background-image: linear-gradient(to top, rgba(0,0,0,0.9), rgba(0,0,0,0.1)), url('https://images.unsplash.com/photo-1576402187878-974f70c890a5?q=80&w=1000&auto=format&fit=crop');">
+                    <div class="conteudo-card">
+                        <h2>Receitas de Natal</h2>
+                        <p>O clássico peru, farofas crocantes e as sobremesas que não podem faltar na ceia.</p>
+                        <a href="categorias.html#natal" class="btn-card">Ver Coleção</a>
+                    </div>
+                </div>
+
+                <div class="card" style="background-image: linear-gradient(to top, rgba(0,0,0,0.9), rgba(0,0,0,0.1)), url('https://www.receiteria.com.br/wp-content/uploads/frango-empanado-na-airfryer-01.jpg');">
+                    <div class="conteudo-card">
+                        <h2>Especial Air Fryer</h2>
+                        <p>Praticidade e saúde: pratos deliciosos e crocantes feitos em minutos sem óleo.</p>
+                        <a href="categorias.html#air-fryer" class="btn-card">Ver Coleção</a>
+                    </div>
+                </div>
+
+                <div class="card" style="background-image: linear-gradient(to top, rgba(0,0,0,0.9), rgba(0,0,0,0.1)), url('https://imgs.search.brave.com/c-mjKDxMw9JbdqU0qXagfyZe4KRzgDaMW_FJhtfh5IU/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9zdGF0/aWMuaXRkZy5jb20u/YnIvaW1hZ2VzLzY0/MC1hdXRvLzA2N2E4/ZjhkZWEyZTBmMWFk/ZTIyMWQwMWYyMzg5/YWYzL3NodXR0ZXJz/dG9jay0xMjMzOTE0/NTA5LmpwZw');">
+                    <div class="conteudo-card">
+                        <h2>Ceia de Ano Novo</h2>
+                        <p>Comece o ano com o pé direito com pratos leves, lentilhas e drinks para brindar.</p>
+                        <a href="categorias.html#ano-novo" class="btn-card">Ver Coleção</a>
+                    </div>
+                </div>
+
+            </section>
+
+            
+                <a class="hide" href="../../HTML/receitas/cadastrar_receita.html">Cadastrar Receita</a>
+        </main>
+
+        <hr>
+
+        <footer>
+            <p>&copy; ARQPGW2 - 2025. Todos os direitos reservados.</p>
+        </footer>
+
+    </body>
+
+    <script src="../../JS/base/home.js"></script>
+    <script src="../../JS/base/main.js"></script>
+    <script src="../../JS/base/pesquisar.js"></script>
+</html>

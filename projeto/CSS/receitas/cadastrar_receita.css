@@ -1,0 +1,431 @@
+.hide {
+    display: none !important;
+}
+
+
+body{
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    background-color: #FBF7F1;
+}
+
+
+/* menu (inicio) */
+.navbar {
+    background-color: #fff9ed;
+    overflow: visible;
+    display: flex;
+    box-shadow: 0.1em 0 0.4em #9b9b9b;
+    justify-content: center;
+    height: 60px;
+    position: relative;
+    z-index: 1000;
+}
+
+.navbar a {
+    text-decoration: none;
+}
+
+.navbar ul {
+    margin-top: 20px;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.navbar li a {
+    padding: 5px 15px;
+    text-decoration: none;
+    font-size: 16px;
+    color: #f4832c;
+    font-weight: 550;
+}
+
+.navbar ul a:hover {
+    background-color: #f4832c;
+    color: white;
+}
+
+.search-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+    margin-left: 50px;
+}
+
+.search-bar {
+    height: 20px;
+    padding: 7px 15px;
+    font-size: 14px;
+    border: 2px solid #4d7034;
+    border-radius: 25px;
+    outline: none;
+    width: 150px;
+    background: #ffffff;
+    color: #4d7034;
+}
+
+.search-bar::placeholder {
+    color: #49291a;
+}
+
+.menu-svg {
+    height: 38px;
+    margin-top: 10px;
+    margin-left: 6px;
+    background-color: #4d7034;
+    border: 2px solid #4d7034;
+    border-left: none;
+    border-radius: 70px;
+    cursor: pointer;
+    padding: 6px 8px;
+    display: flex;
+    align-items: center;
+    transition: all 0.3s ease;
+}
+
+.menu-svg:hover {
+    background-color: #f4832c;
+    border-color: #f4832c;
+}
+
+.menu-svg svg {
+    stroke: #ffffff;
+}
+
+.menu-svg span {
+    margin-left: 5px;
+    margin-right: 5px;
+    color: #ffffff;
+}
+
+.logo {
+    height: 40px;
+    width: auto;
+    margin-right: 50px;
+    cursor: pointer;
+    padding-top: 10px;
+}
+/* menu (fim) */
+
+/* pesquisas (inicio) */
+.search-container {
+    position: relative;
+    display: inline-block;
+}
+
+#lista-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    min-width: 200px;
+    width: 100%;
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    z-index: 9999;
+    max-height: 300px;
+    overflow-y: auto;
+    margin-top: 10px;
+}
+
+#lista-menu .item-resultado-busca {
+    display: block;
+    padding: 10px 15px;
+    text-decoration: none;
+    color: #333;
+    border-bottom: 1px solid #f0f0f0;
+    font-size: 0.9rem;
+    text-align: left;
+}
+
+#lista-menu .item-resultado-busca:hover {
+    background-color: #f0f9eb;
+    color: #4d7034;
+}
+
+#lista-menu .item-resultado-busca:last-child {
+    border-bottom: none;
+}
+
+#lista-menu .aviso-busca {
+    padding: 15px;
+    text-align: center;
+    color: #888;
+    margin: 0;
+    font-size: 0.9rem;
+}
+/* pesquisas (fim) */
+
+/*cadastrar receita(inicio) */
+
+.cadastrar-receita {
+    background-color: #ffffff;
+    border: 2px solid #b7c2a3;
+    padding: 30px;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    max-width: 500px;
+    margin: 20px auto;
+    font-family: sans-serif;
+    box-shadow: 0 5px 15px rgba(73, 41, 26, 0.15);
+}
+
+.cadastrar-receita h1 {
+    color: #4d7034;
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 25px;
+}
+
+.cadastrar-receita label {
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #4d7034;
+    display: block;
+}
+
+.cadastrar-receita input[type="text"],
+.cadastrar-receita input[type="number"],
+.cadastrar-receita input[type="file"],
+.cadastrar-receita textarea {
+    margin-bottom: 15px;
+    padding: 10px;
+    border: 1px solid #b7c2a3;
+    border-radius: 4px;
+    background-color: #fff;
+    color: #49291a;
+    font-size: 14px;
+    width: 100%;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+.cadastrar-receita input[type="file"] {
+     padding: 6px;
+}
+
+.cadastrar-receita input[type="file"]::file-selector-button {
+    background-color: #4d7034;
+    color: #ffffff;
+    border: none;
+    padding: 8px 12px;
+    margin-right: 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.2s;
+}
+
+.cadastrar-receita input[type="file"]::file-selector-button:hover {
+     background-color: #f4832c;
+     color: #fff9ed;
+}
+
+.cadastrar-receita textarea {
+    resize: vertical;
+}
+
+.cadastrar-receita input:focus,
+.cadastrar-receita textarea:focus {
+    outline: none;
+    border-color: #f4832c;
+}
+
+.cadastrar-receita fieldset {
+    border: 1px solid #b7c2a3;
+    border-radius: 6px;
+    padding: 15px;
+    margin-bottom: 20px;
+}
+
+.cadastrar-receita legend {
+    color: #4d7034;
+    font-weight: bold;
+    padding: 0 5px;
+}
+
+.categoria-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+}
+
+.dificuldade label, 
+.categoria-grid label {
+    font-weight: normal;
+    color: #49291a;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+.dificuldade input, 
+.categoria-grid input[type="radio"] {
+    margin-right: 8px;
+    margin-bottom: 0;
+    width: auto;
+    accent-color: #f4832c;
+}
+
+.cadastrar-receita button {
+    background-color: #f4832c;
+    color: #fff9ed;
+    padding: 12px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 16px;
+    transition: background-color 0.2s;
+    margin-top: 10px;
+}
+
+.cadastrar-receita button:hover {
+    background-color: #4d7034;
+}
+
+/*cadastrar receita (fim) */
+
+/* responsividade (incio) */
+.hamburger {
+    display: none;
+    cursor: pointer;
+}
+
+@media (max-width: 768px) {
+
+    .cadastrar-receita {
+        width: 90%;
+        max-width: 100%;
+        padding: 20px 15px;
+        margin: 20px auto;
+    }
+
+    .cadastrar-receita h1 {
+        font-size: 1.5rem;
+    }
+
+    .categoria-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .cadastrar-receita input[type="file"]::file-selector-button {
+        width: 100%;
+        margin-bottom: 8px;
+    }
+
+    .hamburger span {
+    display: block;
+    width: 25px;
+    height: 3px;
+    margin: 5px;
+    background-color: #f4832c;
+    border-radius: 3px;
+    transition: 0.3s;
+    }
+
+    .hamburger {
+        display: none;
+        cursor: pointer;
+        margin-left: 10px;
+    }
+
+    .hamburger span {
+        display: block;
+        width: 25px;
+        height: 3px;
+        margin: 5px;
+        background-color: #f4832c;
+        border-radius: 3px;
+        transition: 0.3s;
+    }
+
+    .hamburger {
+        display: none;
+        cursor: pointer;
+        margin-left: 10px;
+    }
+
+    .hamburger span {
+        display: block;
+        width: 25px;
+        height: 3px;
+        margin: 5px;
+        background-color: #f4832c;
+        border-radius: 3px;
+        transition: 0.3s;
+    }
+
+    .navbar {
+        padding: 10px 20px;
+        flex-wrap: wrap;
+        height: auto;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .hamburger {
+        display: block;
+        order: 3;
+    }
+
+    .logo {
+        margin: 0;
+        order: 1;
+    }
+
+    .menu-svg {
+        display: flex;
+        margin: 0;
+        margin-left: auto;
+        order: 2;
+    }
+
+    .search-bar,
+    #pesquisar-btn,
+    .search-container {
+        display: none !important;
+    }
+
+    .navbar ul {
+        display: none;
+        width: 100%;
+        text-align: center;
+        order: 4;
+    }
+
+    .navbar.active ul {
+        display: flex;
+        flex-direction: column;
+        margin-top: 15px;
+        border-top: 1px solid #eee;
+    }
+
+    .navbar.active li {
+        margin: 10px 0;
+    }
+
+    .navbar.active .hamburger span:nth-child(1) {
+        transform: rotate(45deg) translate(5px, 6px);
+    }
+    .navbar.active .hamburger span:nth-child(2) {
+        opacity: 0;
+    }
+    .navbar.active .hamburger span:nth-child(3) {
+        transform: rotate(-45deg) translate(5px, -6px);
+    }
+}
+/* responsividade (fim) */
+
+
+footer{
+    text-align: center;
+}
+

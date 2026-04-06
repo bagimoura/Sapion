@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../CSS/receitas/cadastrar_receita.css">
+    <link rel="shortcut icon" href="../../IMGS/favicon.svg" type="image/png">
+    <title>Editar Receita</title>
+</head>
+<body>
+    <header>
+        <div class="navbar">
+
+            <img src = "../../IMGS/logo.png" class="logo">
+
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+
+                <ul>
+                    <li><a href="../base/home.html" class="lista">Página Inicial</a></li>
+                    <li><a href="../base/categorias.html" class="lista">Categorias</a></li>
+                    <li><a href="../base/sobre.html" class="lista">Sobre o Portal</a></li>
+                    <li class="hide" id="menu-perfil"><a href="../base/perfil.html" class="lista">Perfil</a></li>
+                </ul>
+
+                <div class="search-container">
+                    <input type="text" id="barra-pesquisa" placeholder="pesquisar" class="search-bar">
+                    <div id="lista-menu" class="sugestoes-box"></div>
+                </div>
+                
+
+                <button type="submit" class="menu-svg" id="pesquisar-btn">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                    </svg>
+                </button>
+
+            <div id="menu-login" class="show">
+                <a href="../base/login.html">
+
+                    <button class="menu-svg">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                            <circle cx="12" cy="7" r="4"/>
+                        </svg>
+                        <span>Entrar</span>
+                    </button>
+                </a>
+            </div>
+
+
+            <!-- <div id="menu-logout" class="hide">
+                <button id="btn-logout" class="menu-svg">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
+                        <polyline points="16 17 21 12 16 7"></polyline>
+                        <line x1="21" y1="12" x2="9" y2="12"></line>
+                    </svg>
+                    <span>Sair</span>
+                </button>
+            </div> -->
+
+            <div id="menu-add" class="hide">
+                <a href="cadastrar_receita.html"> 
+                    <button class="menu-svg btn-orange">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="12" y1="5" x2="12" y2="19"></line>
+                            <line x1="5" y1="12" x2="19" y2="12"></line>
+                        </svg>
+                        <span>Novo</span>
+                    </button>
+                </a>
+            </div>
+
+        </div>
+    </header>
+    <main>
+        <form id="cadastrar-receita" class="cadastrar-receita" enctype="multipart/form-data">
+            <h1>Nova Receita</h1>
+
+            <label for="nome_receita">Nome da receita:</label>
+            <input type="text" id="nome_receita" name="nome_receita">
+            <span class="erro" id="erro-nomeReceita"></span>
+
+            <label for="foto_receita">Foto da receita (Opcional):</label>
+            <input type="file" id="foto_receita" name="foto_receita" accept="image/*">
+
+            <label for="ingredientes">Ingredientes:</label>
+            <textarea id="ingredientes" name="ingredientes" rows="4"></textarea>
+
+            <label for="preparo">Modo de preparo:</label>
+            <textarea id="preparo" name="preparo" rows="4"></textarea>
+
+            <label for="tempo">Tempo médio de preparo (min):</label>
+            <input type="number" id="tempo" name="tempo">
+
+            <label for="porcoes">Porções:</label>
+            <input type="number" id="porcoes" name="porcoes">
+
+            <fieldset>
+                <legend>Dificuldade:</legend>
+                <div class="dificuldade" id="dificuldade">
+                    <label><input type="radio" name="dificuldade" value="Fácil"> Fácil</label>
+                    <label><input type="radio" name="dificuldade" value="Médio"> Médio</label>
+                    <label><input type="radio" name="dificuldade" value="Difícil"> Difícil</label>
+                </div>
+            </fieldset>
+            
+            <fieldset>
+                <legend>Categoria:</legend>
+                <div class="categoria-grid" id="categoria">
+                    <label><input type="radio" name="categoria" value="sobremesa"> Sobremesa</label>
+                    <label><input type="radio" name="categoria" value="salada"> Salada</label>
+                    <label><input type="radio" name="categoria" value="acompanhamento"> Acompanhamento</label>
+                    <label><input type="radio" name="categoria" value="massa"> Massa</label>
+                    <label><input type="radio" name="categoria" value="sopa"> Sopa</label>
+                    <label><input type="radio" name="categoria" value="bebida"> Bebida</label>
+                    <label><input type="radio" name="categoria" value="peixe"> Peixe e Frutos do Mar</label>
+                    <label><input type="radio" name="categoria" value="carne"> Carne</label>
+                    <label><input type="radio" name="categoria" value="ave"> Ave</label>
+                </div>
+            </fieldset>
+
+            <button type="submit" id="enviar-receita">Editar Receita</button>
+        </form>
+    </main>
+    <hr>
+
+    <footer>
+        <p>&copy; ARQPGW2 - 2025. Todos os direitos reservados.</p>
+    </footer>
+
+    <script src="../../JS/receitas/editar_receita.js"></script>
+    <script src="../../JS/base/main.js"></script>
+    <script src="../../JS/base/pesquisar.js"></script>
+</body>
+</html>

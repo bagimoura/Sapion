@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="../../CSS/categorias/categorias.css">
+        <link rel="shortcut icon" href="../../IMGS/favicon.svg" type="image/png">
+        <title>Massas</title>
+    </head>
+    <body>
+        <header>
+            <div class="navbar">
+<img src = "../../IMGS/logo.png" class="logo">
+
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+
+                <ul>
+                    <li><a href="../base/home.html" class="lista">Página Inicial</a></li>
+                    <li><a href="../base/categorias.html" class="lista">Categorias</a></li>
+                    <li><a href="../base/sobre.html" class="lista">Sobre o Portal</a></li>
+                    <li class="hide" id="menu-perfil"><a href="../base/perfil.html" class="lista">Perfil</a></li>
+                </ul>
+
+                <div class="search-container">
+                    <input type="text" id="barra-pesquisa" placeholder="pesquisar" class="search-bar">
+                    <div id="lista-menu" class="sugestoes-box"></div>
+                </div>
+                
+
+                <button type="submit" class="menu-svg" id="pesquisar-btn">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                    </svg>
+                </button>
+                <div id="menu-login" class="show">
+                    <a href="../base/login.html">
+
+                        <button class="menu-svg">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                                <circle cx="12" cy="7" r="4"/>
+                            </svg>
+                            <span>Entrar</span>
+                        </button>
+                    </a>
+                </div>
+
+
+                <!-- <div id="menu-logout" class="hide">
+                    <button id="btn-logout" class="menu-svg">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
+                            <polyline points="16 17 21 12 16 7"></polyline>
+                            <line x1="21" y1="12" x2="9" y2="12"></line>
+                        </svg>
+                        <span>Sair</span>
+                    </button>
+                </div> -->
+
+                <div id="menu-add" class="hide">
+                    <a href="../receitas/cadastrar_receita.html"> <button class="menu-svg btn-orange">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <line x1="12" y1="5" x2="12" y2="19"></line>
+                                <line x1="5" y1="12" x2="19" y2="12"></line>
+                            </svg>
+                            <span>Novo</span>
+                        </button>
+                    </a>
+                </div>
+            </div>
+        </header>
+        <main >
+            <nav class="menu-categorias">
+           
+                <ul>
+                    <li><a href="sobremesas.html">Sobremesas</a></li>
+                    <li><a href="saladas.html">Saladas</a></li>
+                    <li><a href="acompanhamentos.html">Acompanhamentos</a></li>
+                    <li><a href="massas.html">Massas</a></li>
+                    <li><a href="sopas.html">Sopas</a></li>
+                    <li><a href="bebidas.html">Bebidas</a></li>
+                    <li><a href="peixes.html">Peixes e Frutos do Mar</a></li>
+                    <li><a href="carnes.html">Carnes</a></li>
+                    <li><a href="aves.html">Aves</a></li>
+                </ul>
+            </nav>
+            <section class="grade-receitas" data-categoria="massa" id="lista-receitas">
+                
+                <div class="card-receita">
+                    <button class="btn-favorito">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+                        </svg>
+                    </button>
+                    <img src="../../IMGS/categorias/massas/carbonara.png" alt="Carbonara">
+                    <h3>Spaghetti à Carbonara</h3>
+                </div>
+
+                <div class="card-receita">
+                    <button class="btn-favorito">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+                        </svg>
+                    </button>
+                    <img src="../../IMGS/categorias/massas/lasanha-bolonhesa.png" alt="Lasanha">
+                    <h3>Lasanha à Bolonhesa</h3>
+                </div>
+
+                <div class="card-receita">
+                    <button class="btn-favorito">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+                        </svg>
+                    </button>
+                    <img src="../../IMGS/categorias/massas/penne-molho-branco.png" alt="Penne">
+                    <h3>Penne ao Molho Branco</h3>
+                </div>
+
+                <div class="card-receita">
+                    <button class="btn-favorito">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+                        </svg>
+                    </button>
+                    <img src="../../IMGS/categorias/massas/nhoque-batata.png" alt="Nhoque">
+                    <h3>Nhoque de Batata Tradicional</h3>
+                </div>
+
+                <div class="card-receita">
+                    <button class="btn-favorito">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+                        </svg>
+                    </button>
+                    <img src="../../IMGS/categorias/massas/pizza-calabresa.png" alt="Pizza">
+                    <h3>Pizza de Calabresa</h3>
+                </div>
+
+            </section>
+        </main>
+
+        <hr>
+
+        <footer>
+            <p>&copy; ARQPGW2 - 2025. Todos os direitos reservados.</p>
+        </footer>
+    </body>
+    <script src="../../JS/base/main.js"></script>
+    <script src="../../JS/receitas/cadastro_receitas.js"></script>
+    <script src="../../JS/base/pesquisar.js"></script>
+</html>
