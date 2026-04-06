@@ -2,7 +2,7 @@
 Site para projeto de Interação Humano Computador e Verificação, Validação e Teste de software
 - Criar uma branch para cada tarefa/atualização
 
-- 1. Iniciando o Projeto
+1. Iniciando o Projeto
 
     git init: Transforma a pasta atual em um repositório Git, criando uma pasta oculta .git nela.
 
