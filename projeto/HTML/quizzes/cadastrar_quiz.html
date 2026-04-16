@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../../CSS/receitas/cadastrar_receita.css">
     <link rel="shortcut icon" href="../../IMGS/favicon.svg" type="image/png">
-    <title>Editar Receita</title>
+    <title>Cadastrar Receita</title>
 </head>
 <body>
     <header>
@@ -79,62 +79,56 @@
         </div>
     </header>
     <main>
-        <form id="cadastrar-receita" class="cadastrar-receita" enctype="multipart/form-data">
-            <h1>Nova Receita</h1>
+        <form id="cadastrar-quiz" class="cadastrar-quiz">
+            <h1>Criar Quiz</h1>
 
-            <label for="nome_receita">Nome da receita:</label>
-            <input type="text" id="nome_receita" name="nome_receita">
-            <span class="erro" id="erro-nomeReceita"></span>
-
-            <label for="foto_receita">Foto da receita (Opcional):</label>
-            <input type="file" id="foto_receita" name="foto_receita" accept="image/*">
-
-            <label for="ingredientes">Ingredientes:</label>
-            <textarea id="ingredientes" name="ingredientes" rows="4"></textarea>
-
-            <label for="preparo">Modo de preparo:</label>
-            <textarea id="preparo" name="preparo" rows="4"></textarea>
-
-            <label for="tempo">Tempo médio de preparo (min):</label>
-            <input type="number" id="tempo" name="tempo">
-
-            <label for="porcoes">Porções:</label>
-            <input type="number" id="porcoes" name="porcoes">
+            <label for="categoria">Matéria:</label>
 
             <fieldset>
-                <legend>Dificuldade:</legend>
-                <div class="dificuldade" id="dificuldade">
-                    <label><input type="radio" name="dificuldade" value="Fácil"> Fácil</label>
-                    <label><input type="radio" name="dificuldade" value="Médio"> Médio</label>
-                    <label><input type="radio" name="dificuldade" value="Difícil"> Difícil</label>
-                </div>
-            </fieldset>
-            
-            <fieldset>
-                <legend>Categoria:</legend>
-                <div class="categoria-grid" id="categoria">
-                    <label><input type="radio" name="categoria" value="sobremesa"> Sobremesa</label>
-                    <label><input type="radio" name="categoria" value="salada"> Salada</label>
-                    <label><input type="radio" name="categoria" value="acompanhamento"> Acompanhamento</label>
-                    <label><input type="radio" name="categoria" value="massa"> Massa</label>
-                    <label><input type="radio" name="categoria" value="sopa"> Sopa</label>
-                    <label><input type="radio" name="categoria" value="bebida"> Bebida</label>
-                    <label><input type="radio" name="categoria" value="peixe"> Peixe e Frutos do Mar</label>
-                    <label><input type="radio" name="categoria" value="carne"> Carne</label>
-                    <label><input type="radio" name="categoria" value="ave"> Ave</label>
-                </div>
-            </fieldset>
+            <legend>Categoria:</legend>
 
-            <button type="submit" id="enviar-receita">Editar Receita</button>
+            <div class="categoria-grid">
+                <label><input type="radio" name="categoria" value="matematica"> Matematica</label>
+                <label><input type="radio" name="categoria" value="sociologia"> Sociologia</label>
+                <label><input type="radio" name="categoria" value="portugues"> Português</label>
+                <label><input type="radio" name="categoria" value="historia"> Historia</label>
+                <label><input type="radio" name="categoria" value="sociologia"> Sociologia</label>
+                <label><input type="radio" name="categoria" value="fisica"> Física</label>
+                <label><input type="radio" name="categoria" value="quimica"> Química</label>
+                <label><input type="radio" name="categoria" value="ingles"> Inglês</label>
+            </div>
+        </fieldset>
+
+            <label for="nome_receita">Pergunta:</label>
+            <input type="text" id="nome_receita" placeholder="Digite a pergunta">
+
+            <label for="foto_pergunta">Imagem da pergunta (opcional):</label>
+            <input type="file" id="foto_pergunta" accept="image/*">
+
+            <label>Alternativas:</label>
+
+            <div id="alternativas">
+                
+            </div>
+
+            <button type="button" onclick="adicionarAlternativa()">+ Alternativa</button>
+
+            <button type="button" onclick="adicionarQuestao()">Adicionar Pergunta</button>
+
+            <hr>
+
+            <div id="lista-receitas"></div>
+
+            <button type="submit">Criar Quiz</button>
         </form>
     </main>
     <hr>
 
     <footer>
-        <p>&copy; ARQPGW2 - 2025. Todos os direitos reservados.</p>
+        <p>&copy; ARQIHCO - 2026. Todos os direitos reservados.</p>
     </footer>
 
-    <script src="../../JS/receitas/editar_receita.js"></script>
+    <script src="../../JS/quizzes/cadastro_quiz.js"></script>
     <script src="../../JS/base/main.js"></script>
     <script src="../../JS/base/pesquisar.js"></script>
 </body>

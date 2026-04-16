@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
 
-    const formCadastro = document.getElementById("cadastrar-receita");
+    const formCadastro = document.getElementById("cadastrar-quiz");
     const container = document.getElementById("lista-receitas");
 
     let questoes = [];
@@ -92,7 +92,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         questoes.forEach(q => {
             const div = document.createElement("div");
-            div.classList.add("card-receita");
+            div.classList.add("card-quizzes");
 
             div.innerHTML = `
                 <h3>${q.pergunta}</h3>

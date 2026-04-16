@@ -163,9 +163,9 @@ body{
 }
 /* pesquisas (fim) */
 
-/*cadastrar receita(inicio) */
+/*cadastrar quiz(inicio) */
 
-.cadastrar-receita {
+.cadastrar-quiz {
     background-color: #ffffff;
     border: 2px solid #00473e;
     padding: 30px;
@@ -178,24 +178,24 @@ body{
     box-shadow: 0 5px 15px rgba(73, 41, 26, 0.15);
 }
 
-.cadastrar-receita h1 {
+.cadastrar-quiz h1 {
     color: #00473e;
     text-align: center;
     margin-top: 0;
     margin-bottom: 25px;
 }
 
-.cadastrar-receita label {
+.cadastrar-quiz label {
     margin-bottom: 5px;
     font-weight: bold;
     color: #475d5b;
     display: block;
 }
 
-.cadastrar-receita input[type="text"],
-.cadastrar-receita input[type="number"],
-.cadastrar-receita input[type="file"],
-.cadastrar-receita textarea {
+.cadastrar-quiz input[type="text"],
+.cadastrar-quiz input[type="number"],
+.cadastrar-quiz input[type="file"],
+.cadastrar-quiz textarea {
     margin-bottom: 15px;
     padding: 10px;
     border: 1px solid #00473e;
@@ -208,11 +208,11 @@ body{
     font-family: sans-serif;
 }
 
-.cadastrar-receita input[type="file"] {
+.cadastrar-quiz input[type="file"] {
      padding: 6px;
 }
 
-.cadastrar-receita input[type="file"]::file-selector-button {
+.cadastrar-quiz input[type="file"]::file-selector-button {
     background-color: #faae2b;
     color: #00473e;
     border: none;
@@ -224,29 +224,29 @@ body{
     transition: all 0.2s;
 }
 
-.cadastrar-receita input[type="file"]::file-selector-button:hover {
+.cadastrar-quiz input[type="file"]::file-selector-button:hover {
      background-color: #ffa8ba;
      color: #00473e;
 }
 
-.cadastrar-receita textarea {
+.cadastrar-quiz textarea {
     resize: vertical;
 }
 
-.cadastrar-receita input:focus,
-.cadastrar-receita textarea:focus {
+.cadastrar-quiz input:focus,
+.cadastrar-quiz textarea:focus {
     outline: none;
     border-color: #faae2b;
 }
 
-.cadastrar-receita fieldset {
+.cadastrar-quiz fieldset {
     border: 1px solid #475d5b;
     border-radius: 6px;
     padding: 15px;
     margin-bottom: 20px;
 }
 
-.cadastrar-receita legend {
+.cadastrar-quiz legend {
     color: #475d5b;
     font-weight: bold;
     padding: 0 5px;
@@ -275,7 +275,7 @@ body{
     accent-color: #faae2b;
 }
 
-.cadastrar-receita button {
+.cadastrar-quiz button {
     background-color: #faae2b;
     color: #00473e;
     padding: 12px;
@@ -288,11 +288,11 @@ body{
     margin-top: 10px;
 }
 
-.cadastrar-receita button:hover {
+.cadastrar-quiz button:hover {
     background-color: #ffa8ba;
 }
 
-/*cadastrar receita (fim) */
+/*cadastrar quiz (fim) */
 
 /* responsividade (incio) */
 .hamburger {
@@ -302,14 +302,14 @@ body{
 
 @media (max-width: 768px) {
 
-    .cadastrar-receita {
+    .cadastrar-quiz {
         width: 90%;
         max-width: 100%;
         padding: 20px 15px;
         margin: 20px auto;
     }
 
-    .cadastrar-receita h1 {
+    .cadastrar-quiz h1 {
         font-size: 1.5rem;
     }
 
@@ -317,7 +317,7 @@ body{
         grid-template-columns: 1fr;
     }
 
-    .cadastrar-receita input[type="file"]::file-selector-button {
+    .cadastrar-quiz input[type="file"]::file-selector-button {
         width: 100%;
         margin-bottom: 8px;
     }

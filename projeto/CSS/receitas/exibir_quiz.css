@@ -164,7 +164,7 @@ body{
 /* pesquisas (fim) */
 
 
-/* exibir receita (inicio) */
+/* exibir quiz (inicio) */
 
 .container-principal {
     max-width: 900px;
@@ -189,19 +189,19 @@ body{
     color: #00473e;
 }
 
-.pagina-receita {
+.pagina-quiz {
     background-color: #fff;
     border-radius: 15px;
     box-shadow: 0 4px 15px rgba(73, 41, 26, 0.1);
     overflow: hidden;
 }
 
-.cabecalho-receita {
+.cabecalho-quiz {
     padding: 30px;
     text-align: center;
 }
 
-.titulo-prato {
+.titulo-quiz {
     color: #00473e;
     margin: 0 0 15px 0;
     font-size: 32px;
@@ -223,7 +223,7 @@ body{
     border-radius: 12px;
 }
 
-.banner-receita img {
+.banner-quiz img {
     width: 100%;
     height: 400px;
     object-fit: cover;
@@ -231,7 +231,7 @@ body{
     border-bottom: 4px solid #00473e;
 }
 
-.corpo-receita {
+.corpo-quiz {
     display: flex;
     flex-wrap: wrap;
     padding: 30px;
@@ -296,17 +296,17 @@ h2 {
 }
 
 @media (max-width: 768px) {
-    .corpo-receita {
+    .corpo-quiz {
         flex-direction: column;
         gap: 20px;
     }
     
-    .banner-receita img {
+    .banner-quiz img {
         height: 250px;
     }
 }
 
-/* exibir receita (fim) */
+/* exibir quiz (fim) */
 
 /* avaliacao (inicio)
 
