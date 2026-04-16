@@ -166,13 +166,14 @@ body{
 /*sobre(inicio) */
 
 .sobre-nos-container {
-    max-width: 1000px;
     margin: 40px auto;
     font-family: sans-serif;
     padding: 0 20px;
 }
 
 .projeto-descricao {
+    max-width: 1000px;
+    margin: 0 auto 40px;
     background-color: #ffffff;
     border: 2px solid #00473e;
     border-radius: 8px;
@@ -190,6 +191,7 @@ body{
 }
 
 .projeto-descricao p {
+    text-align: center;
     color: #475d5b;
     line-height: 1.6;
     font-size: 1.1rem;
@@ -198,6 +200,8 @@ body{
 }
 
 .cards-criadores {
+    max-width: 1500px;
+    margin: 0 auto 40px;
     display: flex;
     justify-content: space-between;
     gap: 20px;

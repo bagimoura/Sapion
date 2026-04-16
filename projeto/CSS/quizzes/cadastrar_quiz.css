@@ -163,7 +163,7 @@ body{
 }
 /* pesquisas (fim) */
 
-/*cadastrar quiz(inicio) */
+/* cadastrar quiz (inicio) */
 
 .cadastrar-quiz {
     background-color: #ffffff;
@@ -174,8 +174,8 @@ body{
     flex-direction: column;
     max-width: 500px;
     margin: 20px auto;
-    font-family: sans-serif;
-    box-shadow: 0 5px 15px rgba(73, 41, 26, 0.15);
+    font-family: 'Poppins', sans-serif;
+    box-shadow: 0 5px 15px rgba(0, 51, 44, 0.15);
 }
 
 .cadastrar-quiz h1 {
@@ -195,6 +195,7 @@ body{
 .cadastrar-quiz input[type="text"],
 .cadastrar-quiz input[type="number"],
 .cadastrar-quiz input[type="file"],
+.cadastrar-quiz select,
 .cadastrar-quiz textarea {
     margin-bottom: 15px;
     padding: 10px;
@@ -205,11 +206,22 @@ body{
     font-size: 14px;
     width: 100%;
     box-sizing: border-box;
-    font-family: sans-serif;
+    font-family: 'Poppins', sans-serif;
+    outline: none;
+}
+
+.cadastrar-quiz textarea {
+    resize: vertical;
+}
+
+.cadastrar-quiz input:focus,
+.cadastrar-quiz select:focus,
+.cadastrar-quiz textarea:focus {
+    border-color: #faae2b;
 }
 
 .cadastrar-quiz input[type="file"] {
-     padding: 6px;
+    padding: 6px;
 }
 
 .cadastrar-quiz input[type="file"]::file-selector-button {
@@ -225,18 +237,151 @@ body{
 }
 
 .cadastrar-quiz input[type="file"]::file-selector-button:hover {
-     background-color: #ffa8ba;
-     color: #00473e;
+    background-color: #475d5b;
+    color: white;
 }
 
-.cadastrar-quiz textarea {
-    resize: vertical;
+#alternativas {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 15px;
 }
 
-.cadastrar-quiz input:focus,
-.cadastrar-quiz textarea:focus {
-    outline: none;
+.alt-item {
+    display: flex;
+    align-items: center;
+    background-color: #f2f7f5;
+    border: 1px solid #bcd4cb;
+    border-radius: 4px;
+    padding: 8px;
+    transition: border-color 0.2s;
+}
+
+.alt-item:focus-within {
     border-color: #faae2b;
+    background-color: #fff;
+}
+
+.alt-radio {
+    margin-right: 10px;
+    cursor: pointer;
+    accent-color: #00473e;
+}
+
+.alt-texto {
+    flex: 1;
+    border: none !important;
+    background: transparent !important;
+    padding: 5px !important;
+    margin-bottom: 0 !important;
+    outline: none;
+    color: #475d5b;
+}
+
+.btn-remover-alt {
+    background: none;
+    border: none;
+    color: #fa5246;
+    font-size: 1.2rem;
+    font-weight: bold;
+    cursor: pointer;
+    padding: 0 5px;
+    line-height: 1;
+}
+
+.btn-remover-alt:hover {
+    color: #00332c;
+    transform: scale(1.1);
+}
+
+.cadastrar-quiz button {
+    padding: 12px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 16px;
+    transition: background-color 0.2s;
+    margin-top: 10px;
+}
+
+#btn-add-alt {
+    background-color: #bcd4cb;
+    color: #00473e;
+    font-size: 15px;
+    padding: 8px 20px;
+    margin-top: 5px;
+    margin-bottom: 10px; 
+}
+
+#btn-add-alt:hover{
+    background-color: #00473e;
+    color: #ffffff;
+}
+
+.container-btn-alt, 
+.container-btn-questao {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.container-btn-questao button:hover{
+    background-color: #00473e;
+    color: #ffffff;
+}
+
+button[onclick="adicionarQuestao()"] {
+    background-color: #faae2b;
+    color: #00473e;
+    width: 80%;
+    margin-bottom: 10px;
+}
+
+#lista-quizzes {
+    margin: 15px 0;
+}
+
+.card-quizzes-preview {
+    background-color: #f2f7f5;
+    border-left: 5px solid #faae2b;
+    padding: 10px;
+    margin-bottom: 8px;
+    border-radius: 4px;
+    color: #00473e;
+    font-size: 0.9rem;
+}
+
+.botoes-finais {
+    display: flex;
+    gap: 10px;
+    justify-content: space-between;
+}
+
+.botoes-finais button[type="submit"] {
+    flex: 1;
+}
+
+.btn-descartar {
+    flex: 1;
+    background-color: #fa5246;
+    color: white;
+}
+
+.btn-descartar:hover{
+    background-color: #ffa8ba;
+    color: #00473e;
+}
+
+.btn-salvar{
+    background-color: #00473e;
+    color: #ffffff;
+}
+
+.btn-salvar:hover{
+    background-color: #bcd4cb;
+    color: #00473e;
 }
 
 .cadastrar-quiz fieldset {
@@ -275,24 +420,8 @@ body{
     accent-color: #faae2b;
 }
 
-.cadastrar-quiz button {
-    background-color: #faae2b;
-    color: #00473e;
-    padding: 12px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    font-weight: bold;
-    font-size: 16px;
-    transition: background-color 0.2s;
-    margin-top: 10px;
-}
+/* cadastrar quiz (fim) */
 
-.cadastrar-quiz button:hover {
-    background-color: #ffa8ba;
-}
-
-/*cadastrar quiz (fim) */
 
 /* responsividade (incio) */
 .hamburger {

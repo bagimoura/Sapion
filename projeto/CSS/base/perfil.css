@@ -224,6 +224,9 @@ body{
     cursor: pointer;
 } */
 
+.card-opcao{
+    border-radius: 20px;
+}
 .card-opcao:hover {
     transform: translateY(-3px);
     border-color: #00473e;
@@ -242,13 +245,6 @@ body{
     color: #fa5246;
 }
 
-/* .seta {
-    margin-left: auto;
-    font-weight: bold;
-    color: #f4832c;
-    font-size: 1.2rem;
-} */
-
 .card-opcao.logout:hover {
     border-color: #fa5246;
     box-shadow: 0 5px 15px rgba(231, 76, 60, 0.2);
@@ -260,7 +256,6 @@ body{
 
 #btn-logout-perfil {
     background-color: transparent;
-    border: none;
     padding: 8px 15px;
     width: 100%;
     text-align: left;
@@ -308,6 +303,7 @@ body{
 
 
 .btn-alterar {
+    text-decoration: none;
     background-color: #f2f7f5;
     border: 1.5px solid #00473e;
     color: #00473e;

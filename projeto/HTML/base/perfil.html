@@ -10,7 +10,7 @@
     <body>
         <header>
             <div class="navbar">
-                <img src = "../../IMGS/logo.png" class="logo">
+                <img src="../../IMGS/logo.png" class="logo">
 
                 <div class="hamburger">
                     <span></span>
@@ -32,14 +32,13 @@
 
                 <button type="submit" class="menu-svg" id="pesquisar-btn">
                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <circle cx="11" cy="11" r="8"></circle>
-                    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
                     </svg>
                 </button>
 
                 <div id="menu-login" class="show">
                     <a href="login.html">
-
                         <button class="menu-svg">
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                 <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
@@ -50,21 +49,9 @@
                     </a>
                 </div>
 
-
-                <!-- <div id="menu-logout" class="hide">
-                    <button id="btn-logout" class="menu-svg">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
-                            <polyline points="16 17 21 12 16 7"></polyline>
-                            <line x1="21" y1="12" x2="9" y2="12"></line>
-                        </svg>
-                        <span>Sair</span>
-                    </button>
-                </div> -->
-                
-
                 <div id="menu-add" class="hide">
-                    <a href="../../HTML/quizzes/cadastrar_quiz.html"> <button class="menu-svg btn-orange">
+                    <a href="../../HTML/quizzes/cadastrar_quiz.html"> 
+                        <button class="menu-svg btn-orange">
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                 <line x1="12" y1="5" x2="12" y2="19"></line>
                                 <line x1="5" y1="12" x2="19" y2="12"></line>
@@ -73,7 +60,6 @@
                         </button>
                     </a>
                 </div>
-
             </div>
         </header>
 
@@ -86,42 +72,44 @@
                     </div>
                 </div>
 
-                <!-- <div class="grid-opcoes">
-                        <div class="info-opcao">
-                            <h3>Minhas Informações</h3>
-                        </div>
-                    </a> -->
-
-                    <h2 class="titulo-info">Minhas Informações</h2>
-
-                    <div class="card-detalhes">
-                        <div class="item-info">
-                            <div class="texto-info">
-                                <span class="label">E-mail</span>
-                                <h3 id="info-email"></h3>
-                            </div>
-                        </div>
-
-                        <!-- <hr class="divisor-info"> -->
-
-                        <div class="item-info">
-                            <div class="texto-info">
-                                <span class="label">Senha</span>
-                                <h3 id="info-senha">••••••••••••</h3>
-                            </div>
-                            <a href="alterar_perfil.html?tipo=senha" class="btn-alterar" style="text-decoration: none;">Alterar</a>
+                <h2 class="titulo-info">Minhas Informações</h2>
+                <div class="card-detalhes">
+                    <div class="item-info">
+                        <div class="texto-info">
+                            <span class="label">E-mail</span>
+                            <h3 id="info-email"></h3>
                         </div>
                     </div>
 
-                    <div class="card-logout-container">
-                        <div class="card-opcao logout">
-                            <button id="btn-logout-perfil">
-                                <div class="info-opcao">
-                                    <h3>Sair</h3>
-                                    <p>Deslogar da conta</p>
-                                </div>
-                            </button>
+                    <div class="item-info">
+                        <div class="texto-info">
+                            <span class="label">Senha</span>
+                            <h3 id="info-senha">••••••••••••</h3>
                         </div>
+                        <a href="alterar_perfil.html?tipo=senha" class="btn-alterar" style="text-decoration: none;">Alterar</a>
+                    </div>
+                </div>
+
+                <h2 class="titulo-info">Gerenciamento de Conteúdo</h2>
+                <div class="card-detalhes">
+                    <div class="item-info">
+                        <div class="texto-info">
+                            <span class="label">Quizzes Criados</span>
+                            <h3>Meus Quizzes</h3>
+                            <p style="font-size: 0.85rem; color: #777; margin-top: 4px;">Acesse a lista de todos os seus questionários publicados</p>
+                        </div>
+                        <a href="../quizzes/meus_quizzes.html" class="btn-alterar">Acessar</a>
+                    </div>
+                </div>
+
+                <div class="card-logout-container">
+                    <div class="card-opcao logout">
+                        <button id="btn-logout-perfil">
+                            <div class="info-opcao">
+                                <h3>Sair</h3>
+                                <p>Deslogar da conta</p>
+                            </div>
+                        </button>
                     </div>
                 </div>
             </div>

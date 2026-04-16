@@ -11,37 +11,35 @@
     <header>
         <div class="navbar">
 
-            <img src = "../../IMGS/logo.png" class="logo">
+            <img src="../../IMGS/logo.png" class="logo">
 
-                <div class="hamburger">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </div>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
 
-                <ul>
-                    <li><a href="../base/home.html" class="lista">Página Inicial</a></li>
-                    <li><a href="../base/categorias.html" class="lista">Categorias</a></li>
-                    <li><a href="../base/sobre.html" class="lista">Sobre o Portal</a></li>
-                    <li class="hide" id="menu-perfil"><a href="../base/perfil.html" class="lista">Perfil</a></li>
-                </ul>
+            <ul>
+                <li><a href="../base/home.html" class="lista">Página Inicial</a></li>
+                <li><a href="../base/categorias.html" class="lista">Categorias</a></li>
+                <li><a href="../base/sobre.html" class="lista">Sobre o Portal</a></li>
+                <li class="hide" id="menu-perfil"><a href="../base/perfil.html" class="lista">Perfil</a></li>
+            </ul>
 
-                <div class="search-container">
-                    <input type="text" id="barra-pesquisa" placeholder="pesquisar" class="search-bar">
-                    <div id="lista-menu" class="sugestoes-box"></div>
-                </div>
-                
+            <div class="search-container">
+                <input type="text" id="barra-pesquisa" placeholder="pesquisar" class="search-bar">
+                <div id="lista-menu" class="sugestoes-box"></div>
+            </div>
 
-                <button type="submit" class="menu-svg" id="pesquisar-btn">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <button type="submit" class="menu-svg" id="pesquisar-btn">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                     <circle cx="11" cy="11" r="8"></circle>
                     <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-                    </svg>
-                </button>
+                </svg>
+            </button>
 
             <div id="menu-login" class="show">
                 <a href="../base/login.html">
-
                     <button class="menu-svg">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                             <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
@@ -51,18 +49,6 @@
                     </button>
                 </a>
             </div>
-
-
-            <!-- <div id="menu-logout" class="hide">
-                <button id="btn-logout" class="menu-svg">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
-                        <polyline points="16 17 21 12 16 7"></polyline>
-                        <line x1="21" y1="12" x2="9" y2="12"></line>
-                    </svg>
-                    <span>Sair</span>
-                </button>
-            </div> -->
 
             <div id="menu-add" class="hide">
                 <a href="cadastrar_quiz.html"> 
@@ -78,50 +64,75 @@
 
         </div>
     </header>
+
     <main>
         <form id="cadastrar-quiz" class="cadastrar-quiz">
             <h1>Criar Quiz</h1>
 
-            <label for="categoria">Matéria:</label>
+            <fieldset>
+                <legend>Informações Gerais</legend>
+
+                <label for="titulo_quiz">Nome do Quiz:</label>
+                <input type="text" id="titulo_quiz" placeholder="Ex: Matemática Básica">
+
+                <label for="materia">Disciplina:</label>
+                <select id="materia">
+                    <option value="matematica">Matemática</option>
+                    <option value="portugues">Português</option>
+                    <option value="historia">História</option>
+                    <option value="fisica">Física</option>
+                    <option value="quimica">Química</option>
+                    <option value="ingles">Inglês</option>
+                    <option value="sociologia">Sociologia</option>
+                    <option value="biologia">Biologia</option>
+                </select>
+
+                <label for="dificuldade">Dificuldade:</label>
+                <select id="dificuldade">
+                    <option value="facil">Fácil</option>
+                    <option value="medio">Médio</option>
+                    <option value="dificil">Difícil</option>
+                </select>
+            </fieldset>
 
             <fieldset>
-            <legend>Categoria:</legend>
+                <legend>Nova Pergunta</legend>
 
-            <div class="categoria-grid">
-                <label><input type="radio" name="categoria" value="matematica"> Matematica</label>
-                <label><input type="radio" name="categoria" value="sociologia"> Sociologia</label>
-                <label><input type="radio" name="categoria" value="portugues"> Português</label>
-                <label><input type="radio" name="categoria" value="historia"> Historia</label>
-                <label><input type="radio" name="categoria" value="sociologia"> Sociologia</label>
-                <label><input type="radio" name="categoria" value="fisica"> Física</label>
-                <label><input type="radio" name="categoria" value="quimica"> Química</label>
-                <label><input type="radio" name="categoria" value="ingles"> Inglês</label>
-            </div>
-        </fieldset>
+                <label for="enunciado_pergunta">Enunciado da Pergunta:</label>
+                <input type="text" id="enunciado_pergunta" placeholder="Digite a pergunta">
 
-            <label for="nome_quiz">Pergunta:</label>
-            <input type="text" id="nome_quiz" placeholder="Digite a pergunta">
+                <label for="foto_pergunta">Imagem da pergunta (opcional):</label>
+                <input type="file" id="foto_pergunta" accept="image/*">
 
-            <label for="foto_pergunta">Imagem da pergunta (opcional):</label>
-            <input type="file" id="foto_pergunta" accept="image/*">
+                <label>Alternativas (Mínimo 2, Máximo 5):</label>
+                <div id="alternativas"></div>
 
-            <label>Alternativas:</label>
+                <div class="container-btn-alt">
+                    <button type="button" id="btn-add-alt" onclick="adicionarAlternativa()">Adicionar alternativa</button>
+                </div>
 
-            <div id="alternativas">
-                
-            </div>
-
-            <button type="button" onclick="adicionarAlternativa()">+ Alternativa</button>
-
-            <button type="button" onclick="adicionarQuestao()">Adicionar Pergunta</button>
-
-            <hr>
+                <div class="container-btn-questao">
+                    <button type="button" onclick="adicionarQuestao()">Adicionar Pergunta ao Quiz</button>
+                </div>
+            </fieldset>
 
             <div id="lista-quizzes"></div>
 
-            <button type="submit">Criar Quiz</button>
+            <div class="botoes-finais">
+                <button type="submit" class="btn-salvar">Salvar Quiz</button>
+                <button type="button" onclick="descartarQuiz()" class="btn-descartar">Descartar Quiz</button>
+            </div>
         </form>
+
+        <template id="modelo-alternativa">
+            <div class="alt-item">
+                <input type="radio" name="correta" class="alt-radio">
+                <input type="text" class="alt-texto">
+                <button type="button" class="btn-remover-alt" title="remover">×</button>
+            </div>
+        </template>
     </main>
+
     <hr>
 
     <footer>
