@@ -1,0 +1,99 @@
+/* CSS/base/alterar_perfil.css */
+
+.container-alterar {
+    background-color: #f2f7f5;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 80vh;
+}
+
+
+
+.card-edicao {
+    background: white;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    width: 100%;
+    max-width: 400px;
+}
+
+.card-edicao h2{
+    color: #00473e;
+}
+
+.card-edicao p{
+    color: #475d5b;
+}
+
+/* Use uma classe mais específica para não afetar outros inputs do site */
+.card-edicao input {
+    width: 100%;
+    padding: 15px;
+    margin: 10px 0 20px 0; /* Ajuste as margens para dar espaço à label */
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-sizing: border-box; /* Fundamental para o padding não quebrar a largura */
+    font-size: 1rem;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+.botoes { 
+    display: flex; 
+    gap: 10px; 
+}
+
+.btn-acao { 
+    flex: 1; 
+    padding: 15px; 
+    border-radius: 10px; 
+    border: none; 
+    cursor: pointer; 
+    font-weight: bold; 
+    font-size: 1rem;
+    transition: background 0.3s;
+}
+
+.salvar { 
+    background: #fa5246; 
+    color: white; 
+}
+
+.salvar:hover {
+    background: #ffa8ba;
+}
+
+.voltar { 
+    background: #eee; 
+    color: #00473e; 
+    text-decoration: none; 
+    text-align: center; 
+    line-height: 1.2; /* Alinha o texto interno */
+}
+
+.voltar:hover {
+    background: #ddd;
+}
+
+.grupo-input {
+    width: 100%;
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+.msg-erro-validacao {
+    color: #e74c3c;
+    font-size: 0.75rem;
+    margin-top: -15px; /* Puxa para perto do input */
+    margin-bottom: 15px;
+    height: 15px; /* Evita que o layout "pule" quando o erro aparece */
+    font-weight: 500;
+}
+
+/* Deixa o input com borda vermelha se quiser um feedback visual extra (opcional no JS) */
+input.erro {
+    border-color: #e74c3c;
+}

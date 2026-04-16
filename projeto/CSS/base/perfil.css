@@ -4,15 +4,15 @@
 body{
     font-family: 'Poppins', sans-serif;
     margin: 0;
-    background-color:  #FBF7F1;
+    background-color:  #f2f7f5;
 }
 
 /* menu (inicio) */
 .navbar {
-    background-color: #fff9ed;
+    background-color: #f2f7f5;
     overflow: visible;
     display: flex;
-    box-shadow: 0.1em 0 0.4em #9b9b9b;
+    box-shadow: 0.1em 0 0.4em rgba(0, 51, 44, 0.2);
     justify-content: center;
     height: 60px;
     position: relative;
@@ -36,13 +36,13 @@ body{
     padding: 5px 15px;
     text-decoration: none;
     font-size: 16px;
-    color: #f4832c;
+    color: #00473e;
     font-weight: 550;
 }
 
 .navbar ul a:hover {
-    background-color: #f4832c;
-    color: white;
+    background-color: #faae2b;
+    color: #00473e;
 }
 
 .search-container {
@@ -57,24 +57,24 @@ body{
     height: 20px;
     padding: 7px 15px;
     font-size: 14px;
-    border: 2px solid #4d7034;
+    border: 2px solid #00332c;
     border-radius: 25px;
     outline: none;
     width: 150px;
     background: #ffffff;
-    color: #4d7034;
+    color: #00473e;
 }
 
 .search-bar::placeholder {
-    color: #49291a;
+    color: #475d5b;
 }
 
 .menu-svg {
     height: 38px;
     margin-top: 10px;
     margin-left: 6px;
-    background-color: #4d7034;
-    border: 2px solid #4d7034;
+    background-color: #00473e;
+    border: 2px solid #00473e;
     border-left: none;
     border-radius: 70px;
     cursor: pointer;
@@ -85,18 +85,18 @@ body{
 }
 
 .menu-svg:hover {
-    background-color: #f4832c;
-    border-color: #f4832c;
+    background-color: #faae2b;
+    border-color: #faae2b;
 }
 
 .menu-svg svg {
-    stroke: #ffffff;
+    stroke: #f2f7f5;
 }
 
 .menu-svg span {
     margin-left: 5px;
     margin-right: 5px;
-    color: #ffffff;
+    color: #f2f7f5;
 }
 
 .logo {
@@ -181,24 +181,24 @@ body{
     padding: 40px 30px;
     border-radius: 20px;
     box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-    border: 1px solid #eee;
+    border: 1px solid #00332c;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
 .texto-boas-vindas h1 {
-    color: #4d7034;
+    color: #475d5b;
     font-size: 2.2rem;
     margin: 0;
 }
 
 .texto-boas-vindas span {
-    color: #f4832c;
+    color: #fa5246;
 }
 
 .texto-boas-vindas p {
-    color: #666;
+    color: #475d5b;
     margin: 10px 0 0 0;
     font-size: 1.1rem;
 }
@@ -209,7 +209,7 @@ body{
     gap: 20px;
 }
 
-.card-opcao {
+/* .card-opcao {
     display: flex;
     align-items: center;
     background-color: white;
@@ -221,46 +221,46 @@ body{
     transition: all 0.3s ease;
     box-shadow: 0 2px 8px rgba(0,0,0,0.05);
     cursor: pointer;
-}
+} */
 
 .card-opcao:hover {
     transform: translateY(-3px);
-    border-color: #f4832c;
+    border-color: #00473e;
     box-shadow: 0 5px 15px rgba(244, 131, 44, 0.2);
 }
 
 .info-opcao h3 {
     margin: 0;
     font-size: 1.2rem;
-    color: #4d7034;
+    color: #00473e;
 }
 
 .info-opcao p {
     margin: 5px 0 0 0;
     font-size: 0.95rem;
-    color: #888;
+    color: #fa5246;
 }
 
-.seta {
+/* .seta {
     margin-left: auto;
     font-weight: bold;
     color: #f4832c;
     font-size: 1.2rem;
-}
+} */
 
 .card-opcao.logout:hover {
-    border-color: #e74c3c;
+    border-color: #fa5246;
     box-shadow: 0 5px 15px rgba(231, 76, 60, 0.2);
 }
 
 .card-opcao.logout h3 {
-    color: #e74c3c;
+    color: #fa5246;
 }
 
 #btn-logout-perfil {
     background-color: transparent;
     border: none;
-    padding: 0;
+    padding: 8px 15px;
     width: 100%;
     text-align: left;
     cursor: pointer;
@@ -272,6 +272,110 @@ body{
 
 #btn-logout-perfil:focus {
     outline: none;
+}
+
+.card-detalhes {
+    background-color: white;
+    padding: 20px 30px;
+    border-radius: 20px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    border: 1px solid #eee;
+    margin-bottom: 20px;
+}
+
+/* Texto na esquerda botão na direita */
+.item-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 0;
+}
+
+.label {
+    font-size: 0.85rem;
+    color: #475d5b;
+    text-transform: uppercase;
+    font-weight: 600;
+    display: block;
+}
+
+.texto-info h3 {
+    margin: 5px 0 0 0;
+    color: #333;
+    font-size: 1.1rem;
+}
+
+
+.btn-alterar {
+    background-color: #f2f7f5;
+    border: 1.5px solid #00473e;
+    color: #00473e;
+    padding: 8px 18px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.btn-alterar:hover {
+    border: 1.5px solid #ffa8ba;
+    background-color: #f2f7f5;
+    color: #fa5246;
+}
+
+
+.divisor-info {
+    border: 0;
+    border-top: 1px dashed #eee;
+    margin: 5px 0;
+}
+
+
+.card-opcao.logout {
+    margin-top: 40px; 
+    background-color: #fff1f0; 
+    border: 1px solid #fa5246; 
+    padding: 0; 
+    overflow: hidden;
+    transition: all 0.3s ease;
+    width: 200px;
+}
+
+
+#btn-logout-perfil {
+    width: 100%;
+    padding: 10px 25px;
+    background: none;
+    border: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer; /* Faz aparecer a "mãozinha" do mouse */
+}
+
+/* Texto do botão Sair */
+.card-opcao.logout h3 {
+    color: #fa5246; /* Vermelho mais forte para o título */
+    margin: 0;
+}
+
+.card-opcao.logout p {
+    color: #fa5246; /* Vermelho suave para a descrição */
+    opacity: 0.8;
+}
+
+/* Efeito de HOVER (Quando o mouse passa em cima) */
+.card-opcao.logout:hover {
+    background-color: #fa5246; /* Fica vermelho vivo */
+    border-color: #fa5246;
+    transform: translateY(-2px); /*Dá um leve pulinho */
+    box-shadow: 0 4px 12px rgba(217, 54, 62, 0.2);
+}
+
+/* Muda a cor do texto para branco no hover */
+.card-opcao.logout:hover h3, 
+.card-opcao.logout:hover p {
+    color: white;
 }
 
 /* perfil (fim)*/
