@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const form = document.getElementById("cadastrar-quiz");
 
     let listaQuizzes = JSON.parse(localStorage.getItem("quizzes") || "[]");
-    const quizOriginal = listaQuizzes.find(r => r.id == idEdicao);
+    const quizOriginal = listaQuizzes.find(q => q.id == idEdicao);
 
     if (!quizOriginal){
         alert("Quiz não encontrado!");
@@ -58,7 +58,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const atualizarBanco = (imagemFinal) => {
             
             //puxa índice do quiz na lista pra substituir
-            const index = listaQuizzes.findIndex(r => r.id == idEdicao);
+            const index = listaQuizzes.findIndex(q => q.id == idEdicao);
             
             //se tiver encontrado o quiz
             if(index !== -1) {
