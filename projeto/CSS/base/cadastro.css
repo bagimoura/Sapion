@@ -11,7 +11,7 @@ body {
 
 /* menu (inicio) */
 .navbar {
-    background-color: #f2f7f5;
+    background-color: #bcd4cb;
     overflow: visible;
     display: flex;
     box-shadow: 0.1em 0 0.4em rgba(0, 51, 44, 0.2);

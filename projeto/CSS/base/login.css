@@ -11,7 +11,7 @@ body {
 
 /* menu (inicio) */
 .navbar {
-    background-color: #f2f7f5;
+    background-color: #bcd4cb;
     overflow: visible;
     display: flex;
     box-shadow: 0.1em 0 0.4em rgba(0, 51, 44, 0.2);
@@ -123,11 +123,11 @@ body {
     left: 0;
     min-width: 200px;
     width: 100%;
-    background: #ffffff;
-    border: 1px solid #00332c;
+    background: white;
+    border: 1px solid #ddd;
     border-radius: 15px;
     overflow: hidden;
-    box-shadow: 0 4px 10px rgba(0, 51, 44, 0.2);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
     z-index: 9999;
     max-height: 300px;
     overflow-y: auto;
@@ -138,15 +138,15 @@ body {
     display: block;
     padding: 10px 15px;
     text-decoration: none;
-    color: #475d5b;
-    border-bottom: 1px solid #f2f7f5;
+    color: #333;
+    border-bottom: 1px solid #f0f0f0;
     font-size: 0.9rem;
     text-align: left;
 }
 
 #lista-menu .item-resultado-busca:hover {
-    background-color: #ffa8ba;
-    color: #00473e;
+    background-color: #f0f9eb;
+    color: #4d7034;
 }
 
 #lista-menu .item-resultado-busca:last-child {
@@ -156,7 +156,7 @@ body {
 #lista-menu .aviso-busca {
     padding: 15px;
     text-align: center;
-    color: #475d5b;
+    color: #888;
     margin: 0;
     font-size: 0.9rem;
 }
