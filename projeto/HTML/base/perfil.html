@@ -80,21 +80,39 @@
             <div class="container-perfil">
                 <div class="perfil-info">
                     <div class="texto-boas-vindas">
-                        <h1>Olá, <span id="nome-usuario">Visitante</span>!</h1>
-                        <p>O que vamos cozinhar hoje?</p>
+                        <h1><span id="nome-usuario"></span></h1>
+                        <p>Gerenciamento das suas informações pessoais</p>
                     </div>
                 </div>
 
-                <div class="grid-opcoes">
-                    <a href="../receitas/minhas_receitas.html" class="card-opcao">
+                <!-- <div class="grid-opcoes">
                         <div class="info-opcao">
-                            <h3>Minhas Receitas</h3>
-                            <p>Veja e edite seus pratos cadastrados</p>
+                            <h3>Minhas Informações</h3>
                         </div>
-                        <div class="seta">➝</div>
-                    </a>
+                    </a> -->
 
-                    <a href="../receitas/receitas_favoritas.html" class="card-opcao">
+                    <h2 class="titulo-info">Minhas Informações</h2>
+
+                    <div class="card-detalhes">
+                        <div class="item-info">
+                            <div class="texto-info">
+                                <span class="label">E-mail</span>
+                                <h3 id="info-email"></h3>
+                            </div>
+                        </div>
+
+                        <!-- <hr class="divisor-info"> -->
+
+                        <div class="item-info">
+                            <div class="texto-info">
+                                <span class="label">Senha</span>
+                                <h3 id="info-senha">••••••••••••</h3>
+                            </div>
+                            <a href="alterar_perfil.html?tipo=senha" class="btn-alterar" style="text-decoration: none;">Alterar</a>
+                        </div>
+                    </div>
+
+                    <!-- <a href="../receitas/receitas_favoritas.html" class="card-opcao">
                         <div class="info-opcao">
                             <h3>Receitas Favoritas</h3>
                             <p>Veja as receitas que você favoritou!</p>
@@ -108,15 +126,17 @@
                             <p>Compartilhe seu talento</p>
                         </div>
                         <div class="seta">➝</div>
-                    </a>
+                    </a> -->
 
-                    <div class="card-opcao logout">
-                        <button id="btn-logout-perfil">
-                            <div class="info-opcao">
-                                <h3>Sair</h3>
-                                <p>Deslogar da conta</p>
-                            </div>
-                        </button>
+                    <div class="card-logout-container">
+                        <div class="card-opcao logout">
+                            <button id="btn-logout-perfil">
+                                <div class="info-opcao">
+                                    <h3>Sair</h3>
+                                    <p>Deslogar da conta</p>
+                                </div>
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -125,7 +145,7 @@
         <hr>
 
         <footer>
-            <p>&copy; ARQPGW2 - 2025. Todos os direitos reservados.</p>
+            <p>&copy; ARQIHCO - 2026. Todos os direitos reservados.</p>
         </footer>
     </body>
     <script src="../../JS/base/main.js"></script>
