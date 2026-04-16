@@ -1,6 +1,7 @@
 .hide {
     display: none !important;
 }
+
 body{
     font-family: 'Poppins', sans-serif;
     margin: 0;
@@ -194,7 +195,7 @@ body{
 }
 
 .texto-boas-vindas span {
-    color: #fa5246;
+    color: #00473e;
 }
 
 .texto-boas-vindas p {
@@ -320,7 +321,7 @@ body{
 .btn-alterar:hover {
     border: 1.5px solid #ffa8ba;
     background-color: #f2f7f5;
-    color: #fa5246;
+    color: #ffa8ba;
 }
 
 

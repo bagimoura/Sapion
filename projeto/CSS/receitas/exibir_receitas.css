@@ -6,16 +6,16 @@
 body{
     font-family: 'Poppins', sans-serif;
     margin: 0;
-    background-color:  #FBF7F1;
+    background-color:  #f2f7f5;
 }
 
 
 /* menu (inicio) */
 .navbar {
-    background-color: #fff9ed;
+    background-color: #bcd4cb;
     overflow: visible;
     display: flex;
-    box-shadow: 0.1em 0 0.4em #9b9b9b;
+    box-shadow: 0.1em 0 0.4em rgba(0, 51, 44, 0.2);
     justify-content: center;
     height: 60px;
     position: relative;
@@ -39,13 +39,13 @@ body{
     padding: 5px 15px;
     text-decoration: none;
     font-size: 16px;
-    color: #f4832c;
+    color: #00473e;
     font-weight: 550;
 }
 
 .navbar ul a:hover {
-    background-color: #f4832c;
-    color: white;
+    background-color: #faae2b;
+    color: #00473e;
 }
 
 .search-container {
@@ -60,24 +60,24 @@ body{
     height: 20px;
     padding: 7px 15px;
     font-size: 14px;
-    border: 2px solid #4d7034;
+    border: 2px solid #00332c;
     border-radius: 25px;
     outline: none;
     width: 150px;
     background: #ffffff;
-    color: #4d7034;
+    color: #00473e;
 }
 
 .search-bar::placeholder {
-    color: #49291a;
+    color: #475d5b;
 }
 
 .menu-svg {
     height: 38px;
     margin-top: 10px;
     margin-left: 6px;
-    background-color: #4d7034;
-    border: 2px solid #4d7034;
+    background-color: #00473e;
+    border: 2px solid #00473e;
     border-left: none;
     border-radius: 70px;
     cursor: pointer;
@@ -88,18 +88,18 @@ body{
 }
 
 .menu-svg:hover {
-    background-color: #f4832c;
-    border-color: #f4832c;
+    background-color: #faae2b;
+    border-color: #faae2b;
 }
 
 .menu-svg svg {
-    stroke: #ffffff;
+    stroke: #f2f7f5;
 }
 
 .menu-svg span {
     margin-left: 5px;
     margin-right: 5px;
-    color: #ffffff;
+    color: #f2f7f5;
 }
 
 .logo {
@@ -175,22 +175,22 @@ body{
 .btn-voltar {
     display: inline-block;
     text-decoration: none;
-    color: #4d7034;
+    color: #00473e;
     font-weight: bold;
     margin-bottom: 20px;
     padding: 10px 20px;
-    border: 2px solid #4d7034;
+    border: 2px solid #00473e;
     border-radius: 20px;
     transition: all 0.3s;
 }
 
 .btn-voltar:hover {
-    background-color: #4d7034;
-    color: #fff;
+    background-color: #ffa8ba;
+    color: #00473e;
 }
 
 .pagina-receita {
-    background-color: #fff9ed;
+    background-color: #fff;
     border-radius: 15px;
     box-shadow: 0 4px 15px rgba(73, 41, 26, 0.1);
     overflow: hidden;
@@ -202,7 +202,7 @@ body{
 }
 
 .titulo-prato {
-    color: #f4832c;
+    color: #00473e;
     margin: 0 0 15px 0;
     font-size: 32px;
 }
@@ -213,12 +213,12 @@ body{
     gap: 20px;
     font-size: 14px;
     font-weight: bold;
-    color: #4d7034;
+    color: #ffa8ba;
 }
 
 .meta-item {
-    background-color: #b7c2a3;
-    color: #49291a;
+    background-color: #ffa8ba;
+    color: #00473e;
     padding: 5px 12px;
     border-radius: 12px;
 }
@@ -228,7 +228,7 @@ body{
     height: 400px;
     object-fit: cover;
     display: block;
-    border-bottom: 4px solid #4d7034;
+    border-bottom: 4px solid #00473e;
 }
 
 .corpo-receita {
@@ -241,10 +241,10 @@ body{
 .ingredientes-box {
     flex: 1;
     min-width: 250px;
-    background-color: #FBF7F1;
+    background-color: #fff;
     padding: 20px;
     border-radius: 12px;
-    border: 1px solid #b7c2a3;
+    border: 1px solid #00473e;
 }
 
 .preparo-box {
@@ -253,8 +253,8 @@ body{
 }
 
 h2 {
-    color: #4d7034;
-    border-bottom: 2px solid #f4832c;
+    color: #00473e;
+    border-bottom: 2px solid #ffa8ba;
     padding-bottom: 10px;
     margin-top: 0;
 }
@@ -273,7 +273,7 @@ h2 {
 
 .lista-ingredientes li::before {
     content: "•";
-    color: #f4832c;
+    color: #faae2b;
     font-weight: bold;
     font-size: 20px;
     margin-right: 10px;
@@ -290,7 +290,7 @@ h2 {
 }
 
 .lista-preparo li::marker {
-    color: #f4832c;
+    color: #faae2b;
     font-weight: bold;
     font-size: 18px;
 }
@@ -308,7 +308,7 @@ h2 {
 
 /* exibir receita (fim) */
 
-/* avaliacao (inicio) */
+/* avaliacao (inicio)
 
 
 .avaliacao {
@@ -316,7 +316,7 @@ h2 {
     flex-direction: column;
     max-width: 840px;
     margin: 20px auto;
-    color: #49291a;
+    color: #00473e;
     background-color: #FBF7F1;
     padding: 30px;
     border-radius: 12px;
@@ -340,7 +340,7 @@ h2 {
     padding: 15px;
     font-family: inherit;
     font-size: 15px;
-    color: #49291a;
+    color: #00473e;
     background-color: #fff;
     border: 2px solid #e0d0c5;
     border-radius: 8px;
@@ -349,7 +349,7 @@ h2 {
 
 .avaliacao textarea:focus {
     outline: none;
-    border-color: #f4832c;
+    border-color: #faae2b;
     box-shadow: 0 0 0 4px rgba(244, 131, 44, 0.1);
 }
 
@@ -357,7 +357,7 @@ h2 {
     width: 200px;
     padding: 14px;
     margin-top: 10px;
-    background-color: #f4832c;
+    background-color: #faae2b;
     color: #fff;
     border: none;
     border-radius: 8px;
@@ -370,7 +370,7 @@ h2 {
 }
 
 .avaliacao button:hover {
-    background-color: #d66b1a;
+    background-color: #ffa8ba;
     transform: translateY(-2px);
     box-shadow: 0 4px 12px rgba(244, 131, 44, 0.3);
 }
@@ -401,19 +401,19 @@ h2 {
 .card-comentario h3 {
     margin: 0 0 8px 0;
     font-size: 1.15em;
-    color: #49291a;
+    color: #00473e;
     font-weight: 700;
 }
 
 .card-nota {
-    color: #FFD700;
+    color: #475d5b;
     font-size: 1.3em;
     margin-bottom: 10px;
     letter-spacing: 2px;
 }
 
 .card-comentario p {
-    color: #665c56;
+    color: #475d5b;
     line-height: 1.5;
     margin: 0;
 }
@@ -448,7 +448,7 @@ h2 {
 .stars[data-stars="4"] .star:nth-child(4) ~ .star polygon { fill: #d8d8d8; }
 .stars[data-stars="5"] .star:nth-child(5) ~ .star polygon { fill: #d8d8d8; }
 
-/* avaliacao (fim) */
+avaliacao (fim) */
 
 /* responsividade (incio) */
 .hamburger {

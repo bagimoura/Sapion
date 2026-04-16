@@ -6,16 +6,16 @@
 body{
     font-family: 'Poppins', sans-serif;
     margin: 0;
-    background-color: #FBF7F1;
+    background-color: #f2f7f5;
 }
 
 
 /* menu (inicio) */
 .navbar {
-    background-color: #fff9ed;
+    background-color: #bcd4cb;
     overflow: visible;
     display: flex;
-    box-shadow: 0.1em 0 0.4em #9b9b9b;
+    box-shadow: 0.1em 0 0.4em rgba(0, 51, 44, 0.2);
     justify-content: center;
     height: 60px;
     position: relative;
@@ -39,13 +39,13 @@ body{
     padding: 5px 15px;
     text-decoration: none;
     font-size: 16px;
-    color: #f4832c;
+    color: #00473e;
     font-weight: 550;
 }
 
 .navbar ul a:hover {
-    background-color: #f4832c;
-    color: white;
+    background-color: #faae2b;
+    color: #00473e;
 }
 
 .search-container {
@@ -60,24 +60,24 @@ body{
     height: 20px;
     padding: 7px 15px;
     font-size: 14px;
-    border: 2px solid #4d7034;
+    border: 2px solid #00332c;
     border-radius: 25px;
     outline: none;
     width: 150px;
     background: #ffffff;
-    color: #4d7034;
+    color: #00473e;
 }
 
 .search-bar::placeholder {
-    color: #49291a;
+    color: #475d5b;
 }
 
 .menu-svg {
     height: 38px;
     margin-top: 10px;
     margin-left: 6px;
-    background-color: #4d7034;
-    border: 2px solid #4d7034;
+    background-color: #00473e;
+    border: 2px solid #00473e;
     border-left: none;
     border-radius: 70px;
     cursor: pointer;
@@ -88,18 +88,18 @@ body{
 }
 
 .menu-svg:hover {
-    background-color: #f4832c;
-    border-color: #f4832c;
+    background-color: #faae2b;
+    border-color: #faae2b;
 }
 
 .menu-svg svg {
-    stroke: #ffffff;
+    stroke: #f2f7f5;
 }
 
 .menu-svg span {
     margin-left: 5px;
     margin-right: 5px;
-    color: #ffffff;
+    color: #f2f7f5;
 }
 
 .logo {
@@ -167,7 +167,7 @@ body{
 
 .cadastrar-receita {
     background-color: #ffffff;
-    border: 2px solid #b7c2a3;
+    border: 2px solid #00473e;
     padding: 30px;
     border-radius: 8px;
     display: flex;
@@ -179,7 +179,7 @@ body{
 }
 
 .cadastrar-receita h1 {
-    color: #4d7034;
+    color: #00473e;
     text-align: center;
     margin-top: 0;
     margin-bottom: 25px;
@@ -188,7 +188,7 @@ body{
 .cadastrar-receita label {
     margin-bottom: 5px;
     font-weight: bold;
-    color: #4d7034;
+    color: #475d5b;
     display: block;
 }
 
@@ -198,10 +198,10 @@ body{
 .cadastrar-receita textarea {
     margin-bottom: 15px;
     padding: 10px;
-    border: 1px solid #b7c2a3;
+    border: 1px solid #00473e;
     border-radius: 4px;
     background-color: #fff;
-    color: #49291a;
+    color: #475d5b;
     font-size: 14px;
     width: 100%;
     box-sizing: border-box;
@@ -213,8 +213,8 @@ body{
 }
 
 .cadastrar-receita input[type="file"]::file-selector-button {
-    background-color: #4d7034;
-    color: #ffffff;
+    background-color: #faae2b;
+    color: #00473e;
     border: none;
     padding: 8px 12px;
     margin-right: 10px;
@@ -225,8 +225,8 @@ body{
 }
 
 .cadastrar-receita input[type="file"]::file-selector-button:hover {
-     background-color: #f4832c;
-     color: #fff9ed;
+     background-color: #ffa8ba;
+     color: #00473e;
 }
 
 .cadastrar-receita textarea {
@@ -236,18 +236,18 @@ body{
 .cadastrar-receita input:focus,
 .cadastrar-receita textarea:focus {
     outline: none;
-    border-color: #f4832c;
+    border-color: #faae2b;
 }
 
 .cadastrar-receita fieldset {
-    border: 1px solid #b7c2a3;
+    border: 1px solid #475d5b;
     border-radius: 6px;
     padding: 15px;
     margin-bottom: 20px;
 }
 
 .cadastrar-receita legend {
-    color: #4d7034;
+    color: #475d5b;
     font-weight: bold;
     padding: 0 5px;
 }
@@ -261,22 +261,23 @@ body{
 .dificuldade label, 
 .categoria-grid label {
     font-weight: normal;
-    color: #49291a;
+    color: #475d5b;
     display: flex;
     align-items: center;
     cursor: pointer;
 }
+
 .dificuldade input, 
 .categoria-grid input[type="radio"] {
     margin-right: 8px;
     margin-bottom: 0;
     width: auto;
-    accent-color: #f4832c;
+    accent-color: #faae2b;
 }
 
 .cadastrar-receita button {
-    background-color: #f4832c;
-    color: #fff9ed;
+    background-color: #faae2b;
+    color: #00473e;
     padding: 12px;
     border: none;
     border-radius: 4px;
@@ -288,7 +289,7 @@ body{
 }
 
 .cadastrar-receita button:hover {
-    background-color: #4d7034;
+    background-color: #ffa8ba;
 }
 
 /*cadastrar receita (fim) */

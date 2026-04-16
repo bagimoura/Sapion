@@ -6,16 +6,16 @@
 body{
     font-family: 'Poppins', sans-serif;
     margin: 0;
-    background-color:  #FBF7F1;
+    background-color:  #f2f7f5;
 }
 
 
 /* menu (inicio) */
 .navbar {
-    background-color: #fff9ed;
+    background-color: #bcd4cb;
     overflow: visible;
     display: flex;
-    box-shadow: 0.1em 0 0.4em #9b9b9b;
+    box-shadow: 0.1em 0 0.4em rgba(0, 51, 44, 0.2);
     justify-content: center;
     height: 60px;
     position: relative;
@@ -39,13 +39,13 @@ body{
     padding: 5px 15px;
     text-decoration: none;
     font-size: 16px;
-    color: #f4832c;
+    color: #00473e;
     font-weight: 550;
 }
 
 .navbar ul a:hover {
-    background-color: #f4832c;
-    color: white;
+    background-color: #faae2b;
+    color: #00473e;
 }
 
 .search-container {
@@ -60,24 +60,24 @@ body{
     height: 20px;
     padding: 7px 15px;
     font-size: 14px;
-    border: 2px solid #4d7034;
+    border: 2px solid #00332c;
     border-radius: 25px;
     outline: none;
     width: 150px;
     background: #ffffff;
-    color: #4d7034;
+    color: #00473e;
 }
 
 .search-bar::placeholder {
-    color: #49291a;
+    color: #475d5b;
 }
 
 .menu-svg {
     height: 38px;
     margin-top: 10px;
     margin-left: 6px;
-    background-color: #4d7034;
-    border: 2px solid #4d7034;
+    background-color: #00473e;
+    border: 2px solid #00473e;
     border-left: none;
     border-radius: 70px;
     cursor: pointer;
@@ -88,18 +88,18 @@ body{
 }
 
 .menu-svg:hover {
-    background-color: #f4832c;
-    border-color: #f4832c;
+    background-color: #faae2b;
+    border-color: #faae2b;
 }
 
 .menu-svg svg {
-    stroke: #ffffff;
+    stroke: #f2f7f5;
 }
 
 .menu-svg span {
     margin-left: 5px;
     margin-right: 5px;
-    color: #ffffff;
+    color: #f2f7f5;
 }
 
 .logo {
@@ -173,7 +173,7 @@ body{
 }
 
 .menu-categorias h3 {
-    color: #4d7034;
+    color: #00473e;
     margin-bottom: 20px;
     font-size: 1.5rem;
 }
@@ -192,8 +192,8 @@ body{
     display: inline-block;
     text-decoration: none;
     background-color: #ffffff;
-    border: 2px solid #b7c2a3;
-    color: #49291a;
+    border: 2px solid #00473e;
+    color: #00473e;
     padding: 10px 20px;
     border-radius: 50px;
     font-weight: bold;
@@ -202,9 +202,9 @@ body{
 }
 
 .menu-categorias li a:hover {
-    background-color: #f4832c;
-    border-color: #f4832c;
-    color: #fff9ed;
+    background-color: #ffa8ba;
+    border-color: #00473e;
+    color: #00473e;
     transform: translateY(-2px);
     box-shadow: 0 4px 8px rgba(244, 131, 44, 0.3);
 }
@@ -222,7 +222,7 @@ body{
 
 .card-receita {
     background-color: #ffffff;
-    border: 2px solid #b7c2a3;
+    border: 2px solid #00473e;
     border-radius: 12px;
     overflow: hidden;
     transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
@@ -234,7 +234,7 @@ body{
 .card-receita:hover {
     transform: translateY(-5px);
     box-shadow: 0 8px 20px rgba(73, 41, 26, 0.15);
-    border-color: #f4832c;
+    border-color: #ffa8ba;
 }
 
 .card-receita img {
@@ -245,7 +245,7 @@ body{
 }
 
 .card-receita h3 {
-    color: #4d7034;
+    color: #00473e;
     padding: 15px;
     margin: 0;
     font-size: 1.1rem;
@@ -258,12 +258,12 @@ body{
 }
 
 .card-receita:hover h3 {
-    color: #f4832c;
+    color: #00473e;
 }
 
 .titulo-colecao {
     text-align: center;
-    color: #f4832c;
+    color: #00473e;
     font-size: 24px;
     margin-bottom: 20px;
     text-transform: uppercase;
@@ -366,7 +366,7 @@ a{
 
 h2 {
     text-align: center;
-    color: #4d7034;
+    color: #00473e;
     margin: 40px 0 20px 0;
     }
 
