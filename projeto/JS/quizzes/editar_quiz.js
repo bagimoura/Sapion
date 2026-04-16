@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const usuarioLogado = JSON.parse(localStorage.getItem("usuarioLogado"));
     const params = new URLSearchParams(window.location.search);
     const idEdicao = params.get("id");
-    const form = document.getElementById("cadastrar-receita");
+    const form = document.getElementById("cadastrar-quiz");
 
     let listaReceitas = JSON.parse(localStorage.getItem("receitas") || "[]");
     const receitaOriginal = listaReceitas.find(r => r.id == idEdicao);
