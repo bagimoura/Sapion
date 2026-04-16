@@ -498,7 +498,7 @@ h4{
     overflow-x: auto;
 }
 
-.item-receita {
+.item-quiz {
     background-color: #f2f7f5;
     padding: 20px 15px;
     border-radius: 12px;
@@ -511,7 +511,7 @@ h4{
     transition: transform 0.3s, box-shadow 0.3s;
 }
 
-.item-receita:hover {
+.item-quiz:hover {
     transform: translateY(-5px);
     box-shadow: 0 8px 15px rgba(73, 41, 26, 0.15);
 }
@@ -525,11 +525,11 @@ h4{
     transition: border-color 0.3s;
 }
 
-.item-receita:hover .foto-bolinha {
+.item-quiz:hover .foto-bolinha {
     border-color: #ffa8ba;
 }
 
-.nome-receita {
+.nome-quiz {
     margin-top: 12px;
     font-size: 16px;
     font-weight: bold;

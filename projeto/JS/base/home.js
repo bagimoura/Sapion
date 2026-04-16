@@ -43,7 +43,7 @@ setInterval(function() {
 }, 5000);
   
   //barra de pesquisa
-//   let listaReceitas = JSON.parse(localStorage.getItem("receitas") || "[]");
+//   let listaQuizzes = JSON.parse(localStorage.getItem("quizzes") || "[]");
 //   const inputPesquisa = document.getElementById("barra-pesquisa");
 //   const boxSugestoes = document.getElementById("resultados-pesquisa");
 
@@ -62,7 +62,7 @@ setInterval(function() {
 //       }
 
 //       //filtra de acordo com o título
-//       const resultados = listaReceitas.filter(receita => 
+//       const resultados = listaQuizzes.filter(receita => 
 //         receita.nome.toLowerCase().includes(termo) //deixa tudo minúsculo e pesquisa o que foi digitado
 //       );
 

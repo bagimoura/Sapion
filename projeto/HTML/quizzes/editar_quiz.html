@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../../CSS/receitas/cadastrar_receita.css">
+    <link rel="stylesheet" href="../../CSS/quizzes/cadastrar_quiz.css">
     <link rel="shortcut icon" href="../../IMGS/favicon.svg" type="image/png">
-    <title>Editar Receita</title>
+    <title>Editar Quiz</title>
 </head>
 <body>
     <header>
@@ -65,7 +65,7 @@
             </div> -->
 
             <div id="menu-add" class="hide">
-                <a href="cadastrar_receita.html"> 
+                <a href="cadastrar_quiz.html"> 
                     <button class="menu-svg btn-orange">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                             <line x1="12" y1="5" x2="12" y2="19"></line>
@@ -79,15 +79,18 @@
         </div>
     </header>
     <main>
-        <form id="cadastrar-quiz" class="cadastrar-quiz" enctype="multipart/form-data">
-            <h1>Nova Receita</h1>
 
-            <label for="nome_receita">Nome da receita:</label>
-            <input type="text" id="nome_receita" name="nome_receita">
+        <!--CONCILIAR COM O CADASTRO DE QUIZ-->
+
+        <form id="cadastrar-quiz" class="cadastrar-quiz" enctype="multipart/form-data">
+            <h1>Novo Quiz</h1>
+
+            <label for="nome_quiz">Nome da receita:</label>
+            <input type="text" id="nome_quiz" name="nome_quiz">
             <span class="erro" id="erro-nomeReceita"></span>
 
-            <label for="foto_receita">Foto da receita (Opcional):</label>
-            <input type="file" id="foto_receita" name="foto_receita" accept="image/*">
+            <label for="foto_quiz">Foto da receita (Opcional):</label>
+            <input type="file" id="foto_quiz" name="foto_quiz" accept="image/*">
 
             <label for="ingredientes">Ingredientes:</label>
             <textarea id="ingredientes" name="ingredientes" rows="4"></textarea>
@@ -116,7 +119,7 @@
                     <label><input type="radio" name="categoria" value="sobremesa"> Sobremesa</label>
                     <label><input type="radio" name="categoria" value="salada"> Salada</label>
                     <label><input type="radio" name="categoria" value="acompanhamento"> Acompanhamento</label>
-                    <label><input type="radio" name="categoria" value="massa"> Massa</label>
+                    <label><input type="radio" name="categoria" value="biologia"> Massa</label>
                     <label><input type="radio" name="categoria" value="sopa"> Sopa</label>
                     <label><input type="radio" name="categoria" value="bebida"> Bebida</label>
                     <label><input type="radio" name="categoria" value="peixe"> Peixe e Frutos do Mar</label>
@@ -125,7 +128,7 @@
                 </div>
             </fieldset>
 
-            <button type="submit" id="enviar-receita">Editar Receita</button>
+            <button type="submit" id="enviar-quiz">Editar Quiz</button>
         </form>
     </main>
     <hr>

@@ -3,9 +3,9 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="../../CSS/receitas/exibir_receitas.css">
+        <link rel="stylesheet" href="../../CSS/quizzes/exibir_quiz.css">
         <link rel="shortcut icon" href="../../IMGS/favicon.svg" type="image/png">
-        <title>Exibir Receita</title>
+        <title>Exibir Quiz</title>
     </head>
     <body>
         <header>
@@ -52,20 +52,8 @@
                     </a>
                 </div>
 
-
-                <!-- <div id="menu-logout" class="hide">
-                    <button id="btn-logout" class="menu-svg">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
-                            <polyline points="16 17 21 12 16 7"></polyline>
-                            <line x1="21" y1="12" x2="9" y2="12"></line>
-                        </svg>
-                        <span>Sair</span>
-                    </button>
-                </div> -->
-
                 <div id="menu-add" class="hide">
-                    <a href="cadastrar_receita.html"> 
+                    <a href="cadastrar_quiz.html"> 
                         <button class="menu-svg btn-orange">
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                 <line x1="12" y1="5" x2="12" y2="19"></line>
@@ -78,7 +66,11 @@
 
             </div>
         </header>
+
+        <!--CONCILIAR COM AS INFOS DO QUIZ-->
+
         <main>
+
             <div class="container-principal">
                 <a href="javascript:history.back()" class="btn-voltar">← Voltar</a>
 
@@ -95,7 +87,7 @@
                     </header>
 
                     <div class="banner-quiz">
-                        <img id="v-foto" src="" alt="Foto da Receita">
+                        <img id="v-foto" src="" alt="Foto do quiz">
                     </div>
 
                     <div class="corpo-quiz">
@@ -113,38 +105,7 @@
                     </div>
                 </div>
             </div>
-            <section class="hide" id="avaliacao-container">
-                <form id="form-avaliacao" class="avaliacao">
-
-                    <div>
-                        <label for="comentario">Gostou da Receita? Deixe sua avaliação: </label>
-                        <textarea id="comentario" name="comentario" rows="4" required></textarea>
-                    </div>
-
-                    <div id="estrelas-container" class="stars" data-stars="1">
-                        <svg height="25" width="23" class="star rating" data-rating="1">
-                            <polygon points="9.9, 1.1, 3.3, 21.78, 19.8, 8.58, 0, 8.58, 16.5, 21.78" style="fill-rule:nonzero;"/>
-                        </svg>
-                        <svg height="25" width="23" class="star rating" data-rating="2">
-                            <polygon points="9.9, 1.1, 3.3, 21.78, 19.8, 8.58, 0, 8.58, 16.5, 21.78" style="fill-rule:nonzero;"/>
-                        </svg>
-                        <svg height="25" width="23" class="star rating" data-rating="3">
-                            <polygon points="9.9, 1.1, 3.3, 21.78, 19.8, 8.58, 0, 8.58, 16.5, 21.78" style="fill-rule:nonzero;"/>
-                        </svg>
-                        <svg height="25" width="23" class="star rating" data-rating="4">
-                            <polygon points="9.9, 1.1, 3.3, 21.78, 19.8, 8.58, 0, 8.58, 16.5, 21.78" style="fill-rule:nonzero;"/>
-                        </svg>
-                        <svg height="25" width="23" class="star rating" data-rating="5">
-                            <polygon points="9.9, 1.1, 3.3, 21.78, 19.8, 8.58, 0, 8.58, 16.5, 21.78" style="fill-rule:nonzero;"/>
-                        </svg>
-                    </div>
-                    
-                    <button type="submit" id="enviar-avaliacao">Enviar</button>
-                </form>
-            </section>
-
-            <section id="comentarios-publicados" style="margin-top: 20px;">
-            </section>
+            
         </main>
         <hr>
 

@@ -15,25 +15,25 @@ document.addEventListener("DOMContentLoaded", () => {
                 return;
             }
 
-            const todas = JSON.parse(localStorage.getItem("receitas") || "[]");
+            const todos = JSON.parse(localStorage.getItem("quizzes") || "[]");
 
-            const filtradas = todas.filter(r => 
-                r.nome.toLowerCase().includes(termo) || 
-                r.ingredientes.toLowerCase().includes(termo)
+            const filtradas = todos.filter(q => 
+                q.nome.toLowerCase().includes(termo) || 
+                q.ingredientes.toLowerCase().includes(termo)
             );
 
             container.innerHTML = "";
             container.style.display = "block";
 
             if (filtradas.length === 0) {
-                container.innerHTML = "<p class='aviso-busca'>Nenhuma receita encontrada.</p>";
+                container.innerHTML = "<p class='aviso-busca'>Nenhum quiz encontrado.</p>";
                 return;
             }
 
-            filtradas.forEach(r => {
+            filtradas.forEach(q => {
                 const link = document.createElement("a");
                 link.classList.add("item-resultado-busca");
-                link.href = `../receitas/exibir_receita.html?id=${r.id}`;
+                link.href = `../quizzes/exibir_quiz.html?id=${r.id}`;
                 link.textContent = r.nome;
                 container.appendChild(link);
             });

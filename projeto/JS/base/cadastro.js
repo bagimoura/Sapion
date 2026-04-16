@@ -159,7 +159,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 nome: nome,
                 email: email,
                 senha: senha,
-                receitas: [] 
+                quizzes: [] 
             }
             
             //adiciona o usuário no array

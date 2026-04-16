@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
 
     const formCadastro = document.getElementById("cadastrar-quiz");
-    const container = document.getElementById("lista-receitas");
+    const container = document.getElementById("lista-quizzes");
 
     let questoes = [];
 
@@ -25,9 +25,8 @@ document.addEventListener("DOMContentLoaded", () => {
     window.adicionarAlternativa = adicionarAlternativa;
 
     function adicionarQuestao() {
-        let pergunta = document.getElementById("nome_receita").value;
+        let pergunta = document.getElementById("nome_quiz").value;
 
-        // 🔥 AQUI está a mudança principal (radio category)
         let materia = document.querySelector('input[name="categoria"]:checked')?.value;
 
         const imagemInput = document.getElementById("foto_pergunta");
@@ -63,7 +62,7 @@ document.addEventListener("DOMContentLoaded", () => {
             renderizarQuestoes();
 
             // limpa campos
-            document.getElementById("nome_receita").value = "";
+            document.getElementById("nome_quiz").value = "";
             document.getElementById("foto_pergunta").value = "";
             document.getElementById("alternativas").innerHTML = "";
 
