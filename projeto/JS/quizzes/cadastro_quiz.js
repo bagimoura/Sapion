@@ -158,10 +158,15 @@ document.addEventListener("DOMContentLoaded", () => {
                 return;
             }
             let quizzes = JSON.parse(localStorage.getItem("quizzes") || "[]");
+            const usuarioLogado = JSON.parse(localStorage.getItem("usuarioLogado"));
+            const creator = usuarioLogado ? usuarioLogado.nome : "Usuário Anônimo";
+            
             quizzes.push({
                 id: Date.now(),
                 titulo: document.getElementById("titulo_quiz").value || "Sem título",
-                questoes
+                questoes,
+                creator: creator,
+                creatorType: "user"
             });
             localStorage.setItem("quizzes", JSON.stringify(quizzes));
             alert("Quiz criado com sucesso!");

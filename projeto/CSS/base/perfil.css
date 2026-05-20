@@ -320,6 +320,24 @@ body{
     color: #ffa8ba;
 }
 
+.btn-favoritos {
+    text-decoration: none;
+    background-color: #f2f7f5;
+    border: 1.5px solid #00473e;
+    color: #00473e;
+    padding: 8px 18px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.btn-favoritos:hover {
+    border: 1.5px solid #ffa8ba;
+    background-color: #f2f7f5;
+    color: #ffa8ba;
+}
+
 
 .divisor-info {
     border: 0;
