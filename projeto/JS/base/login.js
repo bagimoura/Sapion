@@ -15,12 +15,8 @@ document.addEventListener("DOMContentLoaded", () => {
         const usuarioEncontrado = usuarios.find(user => user.email === emailLogin && user.senha === senhaLogin);
 
         if(usuarioEncontrado){
-            //se o usuário foi encontrado, é necessário "criar um sessão" para que a home page possa mostrar os atributos ocultos
-            //remove a senha antes de salvar na sessão por segurança
-            const sessaoUsuario = {
-                nome: usuarioEncontrado.nome,
-                email: usuarioEncontrado.email
-            };
+            //salva todos os dados do usuário na sessão, exceto a senha (por segurança)
+            const { senha, ...sessaoUsuario } = usuarioEncontrado;
 
             localStorage.setItem("usuarioLogado", JSON.stringify(sessaoUsuario));
 

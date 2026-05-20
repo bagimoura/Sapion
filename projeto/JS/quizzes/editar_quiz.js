@@ -14,7 +14,7 @@ document.addEventListener("DOMContentLoaded", () => {
         return;
     }
 
-    if (quizOriginal.autor !== usuarioLogado.email) {
+    if (quizOriginal.creatorEmail !== usuarioLogado.email && quizOriginal.creator !== usuarioLogado.nome) {
         alert("Você não tem permissão para editar este quiz.");
         window.location.href = "../base/home.html";
         return;

@@ -161,8 +161,82 @@ body{
 }
 /* pesquisas (fim) */
 
-/* perfil (inicio)*/
+/*card icon inicio */
+.card-img-container {
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    overflow: visible; 
+    border: 4px solid #00473e;
+    margin: 15px auto;
+    position: relative;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
 
+.card-img-container:hover {
+    border-color: #ffa8ba;
+    transform: translateY(-5px);
+}
+
+.card-img-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%; 
+}
+
+.overlay-upload {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 71, 62, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    border-radius: 50%;
+}
+
+.card-img-container:hover .overlay-upload {
+    opacity: 1;
+}
+
+.overlay-upload span {
+    color: #f2f7f5;
+    font-weight: 600;
+    font-size: 1rem;
+}
+
+.camera-icon-badge {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    background-color: #00473e;
+    border: 3px solid #f2f7f5;
+    color: #f2f7f5;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+    z-index: 10;
+}
+
+.card-img-container:hover .camera-icon-badge {
+    background-color: #ffa8ba;
+    color: #00473e;
+    transform: scale(1.1);
+}
+/* card icon final*/
+
+/* perfil (inicio)*/
 .perfil-main {
     min-height: 80vh;
     padding: 40px 20px;
@@ -176,7 +250,7 @@ body{
 }
 
 .perfil-info {
-    text-align: center; /* Centraliza o texto */
+    text-align: center;
     margin-bottom: 40px;
     background-color: white;
     padding: 40px 30px;
@@ -210,23 +284,10 @@ body{
     gap: 20px;
 }
 
-/* .card-opcao {
-    display: flex;
-    align-items: center;
-    background-color: white;
-    padding: 25px;
-    border-radius: 15px;
-    text-decoration: none;
-    color: #333;
-    border: 2px solid transparent;
-    transition: all 0.3s ease;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-    cursor: pointer;
-} */
-
 .card-opcao{
     border-radius: 20px;
 }
+
 .card-opcao:hover {
     transform: translateY(-3px);
     border-color: #00473e;
@@ -279,7 +340,6 @@ body{
     margin-bottom: 20px;
 }
 
-/* Texto na esquerda botão na direita */
 .item-info {
     display: flex;
     justify-content: space-between;
@@ -293,14 +353,14 @@ body{
     text-transform: uppercase;
     font-weight: 600;
     display: block;
+    margin-bottom: 5px;
 }
 
 .texto-info h3 {
-    margin: 5px 0 0 0;
+    margin: 0 0 0 0;
     color: #333;
     font-size: 1.1rem;
 }
-
 
 .btn-alterar {
     text-decoration: none;
@@ -311,6 +371,12 @@ body{
     border-radius: 20px;
     cursor: pointer;
     font-weight: 600;
+    font-family: inherit;
+    font-size: 1rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
     transition: all 0.3s ease;
 }
 
@@ -320,31 +386,11 @@ body{
     color: #ffa8ba;
 }
 
-.btn-favoritos {
-    text-decoration: none;
-    background-color: #f2f7f5;
-    border: 1.5px solid #00473e;
-    color: #00473e;
-    padding: 8px 18px;
-    border-radius: 20px;
-    cursor: pointer;
-    font-weight: 600;
-    transition: all 0.3s ease;
-}
-
-.btn-favoritos:hover {
-    border: 1.5px solid #ffa8ba;
-    background-color: #f2f7f5;
-    color: #ffa8ba;
-}
-
-
 .divisor-info {
     border: 0;
     border-top: 1px dashed #eee;
     margin: 5px 0;
 }
-
 
 .card-opcao.logout {
     margin-top: 40px; 
@@ -356,7 +402,6 @@ body{
     width: 200px;
 }
 
-
 #btn-logout-perfil {
     width: 100%;
     padding: 10px 25px;
@@ -365,36 +410,82 @@ body{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    cursor: pointer; /* Faz aparecer a "mãozinha" do mouse */
+    cursor: pointer;
 }
 
-/* Texto do botão Sair */
 .card-opcao.logout h3 {
-    color: #fa5246; /* Vermelho mais forte para o título */
+    color: #fa5246;
     margin: 0;
 }
 
 .card-opcao.logout p {
-    color: #fa5246; /* Vermelho suave para a descrição */
+    color: #fa5246;
     opacity: 0.8;
 }
 
-/* Efeito de HOVER (Quando o mouse passa em cima) */
 .card-opcao.logout:hover {
-    background-color: #fa5246; /* Fica vermelho vivo */
+    background-color: #fa5246;
     border-color: #fa5246;
-    transform: translateY(-2px); /*Dá um leve pulinho */
+    transform: translateY(-2px);
     box-shadow: 0 4px 12px rgba(217, 54, 62, 0.2);
 }
 
-/* Muda a cor do texto para branco no hover */
 .card-opcao.logout:hover h3, 
 .card-opcao.logout:hover p {
     color: white;
 }
 
-/* perfil (fim)*/
+.titulo-info {
+    color: #00473e;
+    font-size: 1.4rem;
+    margin-top: 30px;
+    margin-bottom: 15px;
+    padding-left: 5px;
+}
 
+.textarea-container textarea {
+    width: 100%;
+    height: 120px;
+    padding: 12px;
+    border: 1.5px solid #bcd4cb;
+    border-radius: 12px;
+    resize: none;
+    font-family: inherit;
+    font-size: 1rem;
+    color: #333;
+    box-sizing: border-box;
+    outline: none;
+    transition: border-color 0.3s ease;
+}
+
+.textarea-container textarea:focus {
+    border-color: #00473e;
+}
+
+.grid-materias {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 15px;
+    padding: 10px 0;
+}
+
+.container-checkbox {
+    display: flex;
+    align-items: center;
+    font-size: 1rem;
+    color: #333;
+    cursor: pointer;
+    user-select: none;
+}
+
+.container-checkbox input {
+    margin-right: 10px;
+    width: 18px;
+    height: 18px;
+    accent-color: #00473e;
+    cursor: pointer;
+}
+/* perfil (fim)*/
 
 /* responsividade (incio) */
 .hamburger {

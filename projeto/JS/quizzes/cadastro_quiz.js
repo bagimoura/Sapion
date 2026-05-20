@@ -160,12 +160,14 @@ document.addEventListener("DOMContentLoaded", () => {
             let quizzes = JSON.parse(localStorage.getItem("quizzes") || "[]");
             const usuarioLogado = JSON.parse(localStorage.getItem("usuarioLogado"));
             const creator = usuarioLogado ? usuarioLogado.nome : "Usuário Anônimo";
+            const creatorEmail = usuarioLogado ? usuarioLogado.email : "";
             
             quizzes.push({
                 id: Date.now(),
                 titulo: document.getElementById("titulo_quiz").value || "Sem título",
                 questoes,
                 creator: creator,
+                creatorEmail: creatorEmail,
                 creatorType: "user"
             });
             localStorage.setItem("quizzes", JSON.stringify(quizzes));

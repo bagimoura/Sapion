@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../../CSS/base/perfil.css"> <title>Alterar Informação</title>
+    <link rel="stylesheet" href="../../CSS/base/perfil.css"> 
+    <title>Alterar Informação</title>
     <link rel="stylesheet" href="../../CSS/base/alterar_perfil.css">
-
 </head>
 <body>
     <div class="container-alterar">
@@ -13,13 +13,18 @@
             <h2 id="titulo-pagina">Alterar Informações</h2>
             <p>Atualize seus dados abaixo:</p>
             
-            <div class="grupo-input">
+            <div class="grupo-input" id="grupo-nome">
+                <label for="input-nome" class="label-estilizada">Nome de Usuário</label>
+                <input type="text" id="input-nome" placeholder="Digite o novo nome de usuário">
+            </div>
+
+            <div class="grupo-input" id="grupo-email">
                 <label for="input-email" class="label-estilizada">E-mail</label>
                 <input type="email" id="input-email" placeholder="Digite o novo e-mail">
                 <p id="erro-email" class="msg-erro-validacao"></p>
             </div>
 
-            <div class="grupo-input">
+            <div class="grupo-input" id="grupo-senha">
                 <label for="input-senha" class="label-estilizada">Nova Senha</label>
                 <input type="password" id="input-senha" placeholder="Digite a nova senha">
                 <p id="erro-senha" class="msg-erro-validacao"></p>
@@ -31,7 +36,10 @@
             </div>
         </div>
     </div>
+    <ul>
+    <li class="hide" id="menu-perfil"><a href="../base/perfil.html" class="lista">Perfil</a></li>
+    </ul>
 
-    <script src="../../JS/alterar_perfil.js"></script>
+    <script src="../../JS/base/alterar_perfil.js"></script>
 </body>
 </html>

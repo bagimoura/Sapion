@@ -9,9 +9,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (window.location.pathname.includes("meus_quizzes.html")) {
         if (usuarioLogado) {
-            quizzesExibidos = quizzes.filter(q => q.creator === usuarioLogado.nome && q.creatorType !== "template");
+            // Filtra por email (imutável) com fallback para nome (quizzes antigos)
+            quizzesExibidos = quizzes.filter(q =>
+                q.creatorType !== "template" &&
+                (q.creatorEmail === usuarioLogado.email || (!q.creatorEmail && q.creator === usuarioLogado.nome))
+            );
         } else {
-            quizzesExibidos = []; // Se não estiver logado, não mostra nada
+            quizzesExibidos = [];
         }
     }
 
@@ -21,12 +25,14 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     listaMeusQuizzes.innerHTML = quizzesExibidos.map(quiz => {
-        // Usa a imagem da primeira pergunta como capa ou uma imagem padrão
         const capa = quiz.questoes[0]?.imagem || "../../IMGS/padrao.png";
         const isFavorito = FavoritosManager.isFavorito(quiz.id);
         const creatorDisplay = quiz.creatorType === "template" ? quiz.creator : (quiz.creator || "Você");
         const isTemplate = quiz.creatorType === "template";
-        const isOwner = usuarioLogado && quiz.creator === usuarioLogado.nome;
+        const isOwner = usuarioLogado && (
+            quiz.creatorEmail === usuarioLogado.email ||
+            (!quiz.creatorEmail && quiz.creator === usuarioLogado.nome)
+        );
 
         return `
             <div class="card-quizzes">
@@ -59,7 +65,6 @@ document.addEventListener("DOMContentLoaded", () => {
         `;
     }).join("");
 
-    // Adiciona event listeners para os botões de favorito
     document.querySelectorAll(".btn-favorito").forEach(btn => {
         btn.addEventListener("click", (e) => {
             e.preventDefault();
@@ -78,27 +83,25 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 });
 
-// Função funcional apenas para excluir
 window.excluirQuiz = (id) => {
     const usuarioLogado = JSON.parse(localStorage.getItem("usuarioLogado"));
     const quizzes = JSON.parse(localStorage.getItem("quizzes") || "[]");
     const quiz = quizzes.find(q => q.id === id);
 
-    // Verificar se o usuário está logado
     if (!usuarioLogado) {
         alert("Você precisa estar logado para deletar um quiz!");
         return;
     }
 
-    // Verificar se o quiz existe
     if (!quiz) {
         alert("Quiz não encontrado!");
         return;
     }
 
-    // Verificar se o usuário é o criador do quiz ou se é um quiz de exemplo (template)
-    const isOwner = quiz.creator === usuarioLogado.nome;
     const isTemplate = quiz.creatorType === "template";
+    // Verifica por email (imutável) com fallback para nome (quizzes antigos)
+    const isOwner = quiz.creatorEmail === usuarioLogado.email ||
+        (!quiz.creatorEmail && quiz.creator === usuarioLogado.nome);
 
     if (isTemplate) {
         alert("Você não pode deletar os quizzes de exemplo!");
