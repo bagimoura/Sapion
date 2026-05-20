@@ -98,3 +98,7 @@ test('testeSenha8', () => {
 test('testeSenha9', () => {
   expect(validarSenha("senhA20000%")).toBe(true);
 });
+
+test('testeSenha10', () => {
+  expect(validarSenha("senha123")).toBe(false); // equivalente ao validarSenha() do teste de caixa branca
+});

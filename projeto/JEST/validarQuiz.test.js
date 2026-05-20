@@ -60,6 +60,14 @@ test('testeCampos7', () => {
 
 test('testeCampos8', () => {
     const quiz = { 
+        titulo: 'Física', 
+        perguntas: [] 
+    };
+    expect(verificarCampos(quiz)).toBe(false); // equivalente ao verificarCampos() do teste de caixa branca
+});
+
+test('testeCampos9', () => {
+    const quiz = { 
         titulo: 'Quiz multiplicação', 
         perguntas: [{ enunciado: '', resposta: '' }] 
     };
