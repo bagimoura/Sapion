@@ -40,10 +40,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // 3. Preenchimento dos dados na tela de Perfil
     const nomeUsuario = document.getElementById("nome-usuario");
+    const infoNome = document.getElementById("info-nome");
     const infoEmail = document.getElementById("info-email");
 
     if (usuarioLogado) {
         if (nomeUsuario) nomeUsuario.textContent = usuarioLogado.nome;
+        if (infoNome) infoNome.textContent = usuarioLogado.nome;
         if (infoEmail) infoEmail.textContent = usuarioLogado.email;
     }
 

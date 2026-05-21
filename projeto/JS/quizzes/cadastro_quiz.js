@@ -15,6 +15,7 @@ document.addEventListener("DOMContentLoaded", () => {
         sociologia: "Sociologia",
         ingles: "Inglês",
         biologia: "Biologia",
+        geografia: "Geografia",
         facil: "Fácil",
         medio: "Médio",
         dificil: "Difícil"
