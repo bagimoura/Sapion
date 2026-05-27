@@ -8,68 +8,83 @@
 
 const { verificarCampos } = require('./validarQuiz');
 
-test('testeCampos1', () => {
-    const quiz = { titulo: 'Oi', perguntas: [{ enunciado: 'Qual a cor?', resposta: 'Azul' }] };
-    expect(verificarCampos(quiz)).toBe(false);
-});
+describe('Caixa Branca - Análise de Fluxo de Controle: verificarCampos()', () => {
 
-test('testeCampos2', () => {
-    const quiz = { titulo: 'Quiz de matemática', perguntas: [] };
-    expect(verificarCampos(quiz)).toBe(false);
-});
+    // === titulo do quiz pequeno ou vazio
+    test('Fluxo 1: Deve desviar para o primeiro Return False se o título for menor que 3 caracteres ou inexistente', () => {
+        const quizTituloCurto = { titulo: 'Oi', perguntas: [{ enunciado: 'Qual a cor?', resposta: 'Azul' }] };
+        expect(verificarCampos(quizTituloCurto)).toBe(false);
 
-test('testeCampos3', () => {
-    const quiz = { 
-        titulo: 'Quiz de soma', 
-        perguntas: [{ enunciado: '  ', resposta: '16' }] 
-    };
-    expect(verificarCampos(quiz)).toBe(false);
-});
+        const quizSemTitulo = { perguntas: [{ enunciado: 'Qual a cor?', resposta: 'Azul' }] };
+        expect(verificarCampos(quizSemTitulo)).toBe(false);
+    });
 
-test('testeCampos4', () => {
-    const quiz = { 
-        titulo: 'Quiz de soma', 
-        perguntas: [{ enunciado: 'Quanto vale 8 + 8', resposta: '' }] 
-    };
-    expect(verificarCampos(quiz)).toBe(false);
-});
+    // === quiz sem perguntas
+    test('Fluxo 2: Deve passar pelo título, mas desviar para o segundo Return False se a estrutura do array de perguntas for inválida', () => {
+        const quizComPerguntasVazias = { titulo: 'Quiz de matemática', perguntas: [] };
+        expect(verificarCampos(quizComPerguntasVazias)).toBe(false);
 
-test('testeCampos5', () => {
-    const quiz = { 
-        titulo: 'Quiz de soma', 
-        perguntas: [{ enunciado: 'Quanto vale 8 + 8', resposta: '16' }] 
-    };
-    expect(verificarCampos(quiz)).toBe(true);
-});
+        const quizFisicaVazio = { titulo: 'Física', perguntas: [] };
+        expect(verificarCampos(quizFisicaVazio)).toBe(false);
 
-test('testeCampos6', () => {
-    const quiz = { 
-        titulo: 'Quiz multiplicação', 
-        perguntas: [{ enunciado: 'Quanto vale 8 * 8', resposta: '' }] 
-    };
-    expect(verificarCampos(quiz)).toBe(false);
-});
+        // Caso 2: Nem sequer enviou o array de perguntas (testa o quiz.perguntas && Array.isArray)
+        const quizSemArrayPerguntas = { titulo: 'Quiz de Química' };
+        expect(verificarCampos(quizSemArrayPerguntas)).toBe(false);
+    });
 
-test('testeCampos7', () => {
-    const quiz = { 
-        titulo: 'Quiz multiplicação', 
-        perguntas: [{ enunciado: 'Quanto vale 8 * 8', resposta: '64' }] 
-    };
-    expect(verificarCampos(quiz)).toBe(true);
-});
+    // === enunciado vazio
+    test('Fluxo 3: Deve passar pelas estruturas, mas desviar para o terceiro Return False se o ENUNCIADO de alguma pergunta estiver em branco', () => {
+        const quizEnunciadoEspaco = { 
+            titulo: 'Quiz de soma', 
+            perguntas: [{ enunciado: '  ', resposta: '16' }] 
+        };
+        expect(verificarCampos(quizEnunciadoEspaco)).toBe(false);
 
-test('testeCampos8', () => {
-    const quiz = { 
-        titulo: 'Física', 
-        perguntas: [] 
-    };
-    expect(verificarCampos(quiz)).toBe(false); // equivalente ao verificarCampos() do teste de caixa branca
-});
+        // Enunciado completamente vazio
+        const quizEnunciadoVazio = { 
+            titulo: 'Quiz multiplicação', 
+            perguntas: [{ enunciado: '', resposta: '64' }] 
+        };
+        expect(verificarCampos(quizEnunciadoVazio)).toBe(false);
+    });
 
-test('testeCampos9', () => {
-    const quiz = { 
-        titulo: 'Quiz multiplicação', 
-        perguntas: [{ enunciado: '', resposta: '' }] 
-    };
-    expect(verificarCampos(quiz)).toBe(false);
+    test('Fluxo 4: Deve passar pelas estruturas, mas desviar para o terceiro Return False se a RESPOSTA de alguma pergunta estiver em branco', () => {
+        // Resposta vazia na soma
+        const quizRespostaVaziaSoma = { 
+            titulo: 'Quiz de soma', 
+            perguntas: [{ enunciado: 'Quanto vale 8 + 8', resposta: '' }] 
+        };
+        expect(verificarCampos(quizRespostaVaziaSoma)).toBe(false);
+
+        // Resposta vazia na multiplicação
+        const quizRespostaVaziaMult = { 
+            titulo: 'Quiz multiplicação', 
+            perguntas: [{ enunciado: 'Quanto vale 8 * 8', resposta: '' }] 
+        };
+        expect(verificarCampos(quizRespostaVaziaMult)).toBe(false);
+
+        // Ambas vazias (enunciado e resposta vazios)
+        const quizAmbosVazios = { 
+            titulo: 'Quiz multiplicação', 
+            perguntas: [{ enunciado: '', resposta: '' }] 
+        };
+        expect(verificarCampos(quizAmbosVazios)).toBe(false);
+    });
+
+    // tudo certo
+    test('Fluxo 5: Caminho Feliz - Deve percorrer todas as funções e subcondições com sucesso e retornar True', () => {
+        // Validação correta de soma
+        const quizSomaValido = { 
+            titulo: 'Quiz de soma', 
+            perguntas: [{ enunciado: 'Quanto vale 8 + 8', resposta: '16' }] 
+        };
+        expect(verificarCampos(quizSomaValido)).toBe(true);
+
+        // Validação correta de multiplicação
+        const quizMultValido = { 
+            titulo: 'Quiz multiplicação', 
+            perguntas: [{ enunciado: 'Quanto vale 8 * 8', resposta: '64' }] 
+        };
+        expect(verificarCampos(quizMultValido)).toBe(true);
+    });
 });

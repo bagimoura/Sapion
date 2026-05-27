@@ -11,94 +11,65 @@
 
 const { validarNome, validarEmail, validarSenha } = require('./validarCadastro.js');
 
-test('testeNome1', () => {
-  expect(validarNome("Carlos")).toBe(true);
+// NOME
+test('validarNome com nome < 3', () => {
+  expect(validarNome('Jo')).toBe(false);
 });
 
-test('testeNome2', () => {
-  expect(validarNome("Jo")).toBe(false);
+test('validarNome com nome >= 3', () => {
+  expect(validarNome('João')).toBe(true);
 });
 
-test('testeNome3', () => {
-  expect(validarNome("Ana Maria")).toBe(true);
+
+// EMAIL
+// sem @
+test('deve retornar false quando email NÃO TEM @', () => {
+  expect(validarEmail('emailerrado')).toBe(false);
 });
 
-test('testeNome4', () => {
-  expect(validarNome("Luiza")).toBe(true);
+// sem ponto depois do @
+test('deve retornar false quando email NÃO TEM PONTO (sem .com)', () => {
+  expect(validarEmail('usuario@exemplo')).toBe(false);
 });
 
-test('testeNome4', () => {
-  expect(validarNome("Gabriella")).toBe(true);
+// sem texto antes do @
+test('deve retornar false quando email NÃO TEM TEXTO ANTES DO @', () => {
+  expect(validarEmail('@exemplo.com')).toBe(false);
 });
 
-test('testeEmail1', () => {
-  expect(validarEmail("contato@site.com")).toBe(true);
+// email válido
+test('deve retornar true quando email é VÁLIDO', () => {
+  expect(validarEmail('usuario@exemplo.com')).toBe(true);
 });
 
-test('testeEmail2', () => {
-  expect(validarEmail("email-errado")).toBe(false);
+
+// SENHA
+// senha curta 
+test('deve retornar false quando senha tem MENOS de 8 caracteres', () => {
+  expect(validarSenha('Sen1!')).toBe(false);  // 5 chars → falha no {8,}
 });
 
-test('testeEmail3', () => {
-  expect(validarEmail("usuario@teste.com")).toBe(true);
+// sem letra maiúscula
+test('deve retornar false quando senha NÃO TEM letra maiúscula', () => {
+  expect(validarSenha('senha123!')).toBe(false);  // sem A-Z → falha
 });
 
-test('testeEmail4', () => {
-  expect(validarEmail("usuario!teste.com")).toBe(false);
+// sem letra minúscula
+test('deve retornar false quando senha NÃO TEM letra minúscula', () => {
+  expect(validarSenha('SENHA123!')).toBe(false);  // sem a-z → falha
 });
 
-test('testeEmail5', () => {
-  expect(validarEmail("usuario/teste.com")).toBe(false);
+// sem número
+test('deve retornar false quando senha NÃO TEM número', () => {
+  expect(validarSenha('SenhaABC!')).toBe(false);  // sem 0-9 → falha
 });
 
-test('testeEmail6', () => {
-  expect(validarEmail("usuario-teste.com")).toBe(false);
+// sem caractere especial
+test('deve retornar false quando senha NÃO TEM caractere especial', () => {
+  expect(validarSenha('Senha1234')).toBe(false);  // sem @$!%*?& → falha
 });
 
-test('testeEmail7', () => {
-  expect(validarEmail("email@")).toBe(false);
-});
-
-test('testeEmail8', () => {
-  expect(validarEmail("email@outlook")).toBe(false);
-});
-
-test('testeSenha1', () => {
-  expect(validarSenha("Senha123!")).toBe(true);
-});
-
-test('testeSenha2', () => {
-  expect(validarSenha("123")).toBe(false);
-});
-
-test('testeSenha3', () => {
-  expect(validarSenha("Seguranca@2026")).toBe(true);
-});
-
-test('testeSenha4', () => {
-  expect(validarSenha("senha!2026")).toBe(false);
-});
-
-test('testeSenha5', () => {
-  expect(validarSenha("Senha!2026")).toBe(true);
-});
-
-test('testeSenha6', () => {
-  expect(validarSenha("Senha123!")).toBe(true);
-});
-
-test('testeSenha7', () => {
-  expect(validarSenha("Senha12345!")).toBe(true);
-});
-
-test('testeSenha8', () => {
-  expect(validarSenha("Senha20000%")).toBe(true);
-});
-
-test('testeSenha9', () => {
-  expect(validarSenha("senhA20000%")).toBe(true);
-});
-
-test('testeSenha10', () => {
-  expect(validarSenha("senha123")).toBe(false); // equivalente ao validarSenha() do teste de caixa branca
+// senha válida (tudo certo)
+test('deve retornar true quando senha é VÁLIDA (8+ chars, maiúscula, minúscula, número, especial)', () => {
+  expect(validarSenha('Senha123!')).toBe(true);
 });

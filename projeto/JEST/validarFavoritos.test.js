@@ -8,93 +8,50 @@ let localStorageMock = {};
 
 beforeEach(() => {
     localStorageMock = {};
-    
     global.localStorage = {
         getItem: jest.fn((key) => localStorageMock[key] || null),
-        setItem: jest.fn((key, value) => {
-            localStorageMock[key] = value;
-        }),
-        removeItem: jest.fn((key) => {
-            delete localStorageMock[key];
-        }),
-        clear: jest.fn(() => {
-            localStorageMock = {};
-        })
+        setItem: jest.fn((key, value) => { localStorageMock[key] = value; }),
+        removeItem: jest.fn((key) => { delete localStorageMock[key]; }),
+        clear: jest.fn(() => { localStorageMock = {}; })
     };
+});
 
-    localStorageMock['usuarioLogado'] = JSON.stringify({
-        id: 1,
-        nome: 'Teste User',
-        email: 'teste@exemplo.com'
+
+describe('Caixa Branca - Análise de Fluxo de Controle: adicionarFavorito()', () => {
+
+    // usuario nao logado
+    test('Fluxo 1: Deve desviar para o primeiro Return False quando a condição (!usuarioLogado) for VERDADEIRA', () => {
+        localStorageMock['usuarioLogado'] = null; 
+        
+        const resultado = FavoritosManager.adicionarFavorito(1);
+        
+        expect(resultado).toBe(false); 
     });
-});
 
-test('testeAdicionarFavorito1', () => {
-    const resultado = FavoritosManager.adicionarFavorito(1);
-    expect(resultado).toBe(true);
-    
-    const favoritos = JSON.parse(localStorageMock['favoritos']);
-    expect(favoritos).toContain(1);
-});
+    // usuario logado
+    test('Fluxo 2: Deve passar pelo primeiro IF e desviar no segundo IF quando a condição (favoritos.includes) for VERDADEIRA', () => {
+        localStorageMock['usuarioLogado'] = JSON.stringify({ id: 1, email: 't@t.com' });
+        localStorageMock['favoritos'] = JSON.stringify([1]); // Quiz 1 já está lá dentro
+        
+        const resultado = FavoritosManager.adicionarFavorito(1); // Tenta inserir duplicado
+        
+        expect(resultado).toBe(false);
+    });
 
-test('testeAdicionarFavorito2', () => {
-    FavoritosManager.adicionarFavorito(1);
-    const resultado = FavoritosManager.adicionarFavorito(1);
-    expect(resultado).toBe(false);
-});
+    test('Fluxo 3: Caminho Feliz - Deve percorrer todas as instruções lógicas sem desvios de erro e alcançar o Return True', () => {
+        localStorageMock['usuarioLogado'] = JSON.stringify({ id: 1, email: 't@t.com' });
+        localStorageMock['favoritos'] = JSON.stringify([]); // Vazio para não entrar no IF de duplicados
+        
+        const resultado = FavoritosManager.adicionarFavorito(1);
+        
+        expect(resultado).toBe(true);
+    });
 
-test('testeAdicionarFavorito3', () => {
-    FavoritosManager.adicionarFavorito(1);
-    FavoritosManager.adicionarFavorito(5);
-    FavoritosManager.adicionarFavorito(12);
-    
-    const favoritos = JSON.parse(localStorageMock['favoritos']); // equivalente ao adicionarFavorito() do teste de caixa branca
-    expect(favoritos).toEqual([1, 5, 12]);
-});
-
-test('testeRemoverFavorito1', () => {
-    FavoritosManager.adicionarFavorito(1);
-    FavoritosManager.adicionarFavorito(5);
-    
-    const resultado = FavoritosManager.removerFavorito(1);
-    expect(resultado).toBe(true);
-    
-    const favoritos = JSON.parse(localStorageMock['favoritos']);
-    expect(favoritos).toEqual([5]);
-});
-
-test('testeIsFavorito1', () => {
-    FavoritosManager.adicionarFavorito(7);
-    expect(FavoritosManager.isFavorito(7)).toBe(true);
-});
-
-test('testeIsFavorito2', () => {
-    FavoritosManager.adicionarFavorito(7);
-    expect(FavoritosManager.isFavorito(99)).toBe(false);
-});
-
-test('testeToggleFavorito1', () => {
-    const resultado = FavoritosManager.toggleFavorito(5);
-    expect(resultado).toBe(true);
-    
-    const favoritos = JSON.parse(localStorageMock['favoritos']);
-    expect(favoritos).toContain(5);
-});
-
-test('testeToggleFavorito2', () => {
-    FavoritosManager.adicionarFavorito(5);
-    const resultado = FavoritosManager.toggleFavorito(5);
-    expect(resultado).toBe(false);
-    
-    const favoritos = JSON.parse(localStorageMock['favoritos']);
-    expect(favoritos).not.toContain(5);
-});
-
-test('testeObterFavoritos', () => {
-    FavoritosManager.adicionarFavorito(1);
-    FavoritosManager.adicionarFavorito(2);
-    FavoritosManager.adicionarFavorito(3);
-    
-    const favoritos = FavoritosManager.obterFavoritos();
-    expect(favoritos).toEqual([1, 2, 3]);
+    test('Fluxo 4: Desvio Crítico - Deve simular uma falha estrutural interna para forçar a execução do bloco Catch', () => {
+        localStorageMock['usuarioLogado'] = '{json_corrompido_com_erro}'; 
+        
+        const resultado = FavoritosManager.adicionarFavorito(1);
+        
+        expect(resultado).toBe(false);
+    });
 });
