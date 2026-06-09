@@ -29,4 +29,25 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 
-})
+    // Toggle para mostrar/esconder senha
+     const toggleBtn = document.getElementById("toggle-senha");
+    const senhaInput = document.getElementById("senha");
+    const iconeSenha = document.querySelector(".icone-senha");
+
+    if (toggleBtn && senhaInput) {
+        toggleBtn.addEventListener("click", (e) => {
+            e.preventDefault();
+
+            const tipo = senhaInput.type === "password" ? "text" : "password";
+            senhaInput.type = tipo;
+            if (tipo === "text") {
+                // Caminho da imagem para quando a senha estiver VISÍVEL
+                iconeSenha.src = "../../IMGS/olho_aberto.png"; 
+            } else {
+                // Caminho da imagem para quando a senha estiver OCULTA (a sua imagem padrão)
+                iconeSenha.src = "../../IMGS/teste.jpg"; 
+            }
+        });
+    }
+
+});

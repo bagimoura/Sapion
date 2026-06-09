@@ -47,12 +47,14 @@ document.addEventListener("DOMContentLoaded", () => {
                     <p style="font-size: 0.85rem; color: #666; margin-bottom: 10px;">
                         ${quiz.questoes.length} ${quiz.questoes.length === 1 ? 'pergunta' : 'perguntas'}
                     </p>
-                    ${!isTemplate && isOwner ? `<div style="display: flex; gap: 8px; justify-content: center;">
-                        <button onclick="excluirQuiz(${quiz.id})" style="cursor: pointer; border: none; background: #ff4d4d; color: white; padding: 5px 12px; border-radius: 4px; font-size: 0.8rem; font-weight: bold;">
+                    <div style="display: flex; gap: 8px; justify-content: center; flex-wrap: wrap;">
+                        ${!isTemplate ? `<button onclick="location.href='../quizzes/exibir_quiz.html?id=${quiz.id}'" style="cursor: pointer; border: none; background: #00473e; color: white; padding: 8px 16px; border-radius: 4px; font-size: 0.8rem; font-weight: bold;">
+                            Realizar Quiz
+                        </button>` : ''}
+                        ${!isTemplate && isOwner ? `<button onclick="excluirQuiz(${quiz.id})" style="cursor: pointer; border: none; background: #ff4d4d; color: white; padding: 5px 12px; border-radius: 4px; font-size: 0.8rem; font-weight: bold;">
                             excluir
-                        </button>
-                    </div>` : ''}
-                </div>
+                        </button>` : ''}
+                    </div>
             </div>
         `;
     }).join("");
@@ -75,3 +77,74 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 });
+
+window.excluirQuiz = (id) => {
+    const usuarioLogado = JSON.parse(localStorage.getItem("usuarioLogado"));
+    const quizzes = JSON.parse(localStorage.getItem("quizzes") || "[]");
+    const quiz = quizzes.find(q => q.id === id);
+
+    if (!usuarioLogado) {
+        alert("Você precisa estar logado para deletar um quiz!");
+        return;
+    }
+
+    if (!quiz) {
+        alert("Quiz não encontrado!");
+        return;
+    }
+
+    const isTemplate = quiz.creatorType === "template";
+    const isOwner = quiz.creatorEmail === usuarioLogado.email ||
+        (!quiz.creatorEmail && quiz.creator === usuarioLogado.nome);
+
+    if (isTemplate) {
+        alert("Você não pode deletar os quizzes de exemplo!");
+        return;
+    }
+
+    if (!isOwner) {
+        alert("Você só pode deletar seus próprios quizzes!");
+        return;
+    }
+
+    if (confirm("Deseja realmente apagar este quiz?")) {
+        let quizzesData = JSON.parse(localStorage.getItem("quizzes") || "[]");
+        quizzesData = quizzesData.filter(q => q.id !== id);
+        localStorage.setItem("quizzes", JSON.stringify(quizzesData));
+        window.location.reload();
+    }
+};
+
+window.editarQuiz = (id) => {
+    const usuarioLogado = JSON.parse(localStorage.getItem("usuarioLogado"));
+    const quizzes = JSON.parse(localStorage.getItem("quizzes") || "[]");
+    const quiz = quizzes.find(q => q.id === id);
+
+    if (!usuarioLogado) {
+        alert("Você precisa estar logado para editar um quiz!");
+        return;
+    }
+
+    if (!quiz) {
+        alert("Quiz não encontrado!");
+        return;
+    }
+
+    const isTemplate = quiz.creatorType === "template";
+    const isOwner = quiz.creatorEmail === usuarioLogado.email ||
+        (!quiz.creatorEmail && quiz.creator === usuarioLogado.nome);
+
+    if (isTemplate) {
+        alert("Você não pode editar os quizzes de exemplo!");
+        return;
+    }
+
+    if (!isOwner) {
+        alert("Você só pode editar seus próprios quizzes!");
+        return;
+    }
+
+    // Armazena o quiz em edição
+    localStorage.setItem("quizEmEdicao", JSON.stringify(quiz));
+    window.location.href = "editar_quiz.html?id=" + id;
+};

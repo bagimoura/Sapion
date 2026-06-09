@@ -52,8 +52,11 @@ document.addEventListener("DOMContentLoaded", () => {
                         ${quiz.questoes.length} ${quiz.questoes.length === 1 ? 'pergunta' : 'perguntas'}
                     </p>
                     
-                    <div class="acoes-quiz" style="display: flex; gap: 8px; justify-content: center;">
-                        ${!isTemplate && isOwner ? `<button class="btn-editar-estatico" style="cursor: not-allowed; border: 1px solid #ccc; background: #f9f9f9; color: #999; padding: 5px 12px; border-radius: 4px; font-size: 0.8rem;">
+                    <div class="acoes-quiz" style="display: flex; gap: 8px; justify-content: center; flex-wrap: wrap;">
+                        ${!isTemplate ? `<button onclick="location.href='exibir_quiz.html?id=${quiz.id}'" style="cursor: pointer; border: none; background: #00473e; color: white; padding: 8px 16px; border-radius: 4px; font-size: 0.8rem; font-weight: bold;">
+                            Realizar Quiz
+                        </button>` : ''}
+                        ${!isTemplate && isOwner ? `<button onclick="editarQuiz(${quiz.id})" style="cursor: pointer; border: none; background: #2196F3; color: white; padding: 5px 12px; border-radius: 4px; font-size: 0.8rem; font-weight: bold;">
                             editar
                         </button>
                         <button onclick="excluirQuiz(${quiz.id})" style="cursor: pointer; border: none; background: #ff4d4d; color: white; padding: 5px 12px; border-radius: 4px; font-size: 0.8rem; font-weight: bold;">

@@ -68,45 +68,23 @@
             </div>
         </header>
 
-        <!--CONCILIAR COM AS INFOS DO QUIZ-->
-
         <main>
-
             <div class="container-principal">
                 <a href="javascript:history.back()" class="btn-voltar">← Voltar</a>
 
                 <div class="pagina-quiz">
-                    
                     <header class="cabecalho-quiz">
                         <h1 class="titulo-quiz" id="v-nome">Carregando...</h1>
-                        
-                        <div class="detalhes-meta">
-                            <span class="meta-item">⏱ <span id="v-tempo">--</span> min</span>
-                            <span class="meta-item">🍽 <span id="v-porcoes">--</span> Porções</span>
-                            <span class="meta-item">🔥 Dificuldade: <span id="v-dificuldade">--</span></span>
-                        </div>
                     </header>
 
-                    <div class="banner-quiz">
-                        <img id="v-foto" src="" alt="Foto do quiz">
-                    </div>
+                    <div id="quiz-container"></div>
+                    <div id="resultados-container"></div>
 
-                    <div class="corpo-quiz">
-                        
-                        <aside class="ingredientes-box">
-                            <h2>Ingredientes</h2>
-                            <ul class="lista-ingredientes" id="v-ingredientes"></ul>
-                        </aside>
-
-                        <section class="preparo-box">
-                            <h2>Modo de Preparo</h2>
-                            <ol class="lista-preparo" id="v-preparo"></ol>
-                        </section>
-
+                    <div class="botoes-quiz">
+                        <button onclick="finalizarQuiz()" class="btn-finalizar">Finalizar Quiz</button>
                     </div>
                 </div>
             </div>
-            
         </main>
         <hr>
 
@@ -114,8 +92,7 @@
             <p>&copy; ARQIHCO - 2026. Todos os direitos reservados.</p>
         </footer>
 
-        <script src="../../JS/quizzes/cadastro_quiz.js"></script>
-        <script src="../../JS/quizzes/exibir_quiz.js"></script>
+        <script src="../../JS/quizzes/realizar_quiz.js"></script>
         <script src="../../JS/base/main.js"></script>
         <script src="../../JS/base/pesquisar.js"></script>
 
