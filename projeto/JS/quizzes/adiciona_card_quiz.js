@@ -57,10 +57,10 @@ document.addEventListener("DOMContentLoaded", () => {
                             Realizar Quiz
                         </button>` : ''}
                         ${!isTemplate && isOwner ? `<button onclick="editarQuiz(${quiz.id})" style="cursor: pointer; border: none; background: #2196F3; color: white; padding: 5px 12px; border-radius: 4px; font-size: 0.8rem; font-weight: bold;">
-                            editar
+                            Editar
                         </button>
                         <button onclick="excluirQuiz(${quiz.id})" style="cursor: pointer; border: none; background: #ff4d4d; color: white; padding: 5px 12px; border-radius: 4px; font-size: 0.8rem; font-weight: bold;">
-                            excluir
+                            Excluir
                         </button>` : (isTemplate ? '<p style="font-size: 0.75rem; color: #999;">Exemplo padrão</p>' : '<p style="font-size: 0.75rem; color: #999;">Criado por outro usuário</p>')}
                     </div>
                 </div>
@@ -122,4 +122,38 @@ window.excluirQuiz = (id) => {
         localStorage.setItem("quizzes", JSON.stringify(quizzesData));
         window.location.reload();
     }
+};
+
+window.editarQuiz = (id) => {
+    const usuarioLogado = JSON.parse(localStorage.getItem("usuarioLogado"));
+    const quizzes = JSON.parse(localStorage.getItem("quizzes") || "[]");
+    const quiz = quizzes.find(q => q.id === id);
+
+    if (!usuarioLogado) {
+        alert("Você precisa estar logado para editar um quiz!");
+        return;
+    }
+
+    if (!quiz) {
+        alert("Quiz não encontrado!");
+        return;
+    }
+
+    const isTemplate = quiz.creatorType === "template";
+    const isOwner = quiz.creatorEmail === usuarioLogado.email ||
+        (!quiz.creatorEmail && quiz.creator === usuarioLogado.nome);
+
+    if (isTemplate) {
+        alert("Você não pode editar os quizzes de exemplo!");
+        return;
+    }
+
+    if (!isOwner) {
+        alert("Você só pode editar seus próprios quizzes!");
+        return;
+    }
+
+    // Armazena o quiz em edição
+    localStorage.setItem("quizEmEdicao", JSON.stringify(quiz));
+    window.location.href = "editar_quiz.html?id=" + id;
 };

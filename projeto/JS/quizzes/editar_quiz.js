@@ -22,9 +22,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
     //preenchimento do form de acordo com o id do quiz
     //MUDAR DE ACORDO COM AS INFOS DO QUIZ
-    document.getElementById("nome_quiz").value = quizOriginal.nome;
-    document.getElementById("ingredientes").value = quizOriginal.ingredientes;
-    document.getElementById("preparo").value = quizOriginal.preparo;
+    document.getElementById("titulo_quiz").value = quizOriginal.titulo_quiz;
+    document.getElementById("materia").value = quizOriginal.materia;
+    document.getElementById("dificuldade").value = quizOriginal.dificuldade;
     document.getElementById("tempo").value = quizOriginal.tempo;
     document.getElementById("porcoes").value = quizOriginal.porcoes;
 

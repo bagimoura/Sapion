@@ -1,4 +1,3 @@
-// Display all available quizzes on category pages, filtered by category
 document.addEventListener("DOMContentLoaded", () => {
     const categoriaElement = document.querySelector(".grade-quizzes[data-categoria]");
     
@@ -8,11 +7,9 @@ document.addEventListener("DOMContentLoaded", () => {
     const quizzes = JSON.parse(localStorage.getItem("quizzes") || "[]");
     const usuarioLogado = JSON.parse(localStorage.getItem("usuarioLogado"));
     
-    // For category pages, show all quizzes; for "meus-quizzes", filter to show all (templates included)
     let quizzesToDisplay = quizzes;
     
     if (categoria !== "meus-quizzes") {
-        // For category pages, show quizzes that have questions in this category
         quizzesToDisplay = quizzes.filter(quiz => 
             quiz.questoes && quiz.questoes.some(q => q.materia === categoria)
         );
@@ -51,9 +48,7 @@ document.addEventListener("DOMContentLoaded", () => {
                         ${!isTemplate ? `<button onclick="location.href='../quizzes/exibir_quiz.html?id=${quiz.id}'" style="cursor: pointer; border: none; background: #00473e; color: white; padding: 8px 16px; border-radius: 4px; font-size: 0.8rem; font-weight: bold;">
                             Realizar Quiz
                         </button>` : ''}
-                        ${!isTemplate && isOwner ? `<button onclick="excluirQuiz(${quiz.id})" style="cursor: pointer; border: none; background: #ff4d4d; color: white; padding: 5px 12px; border-radius: 4px; font-size: 0.8rem; font-weight: bold;">
-                            excluir
-                        </button>` : ''}
+                        
                     </div>
             </div>
         `;
@@ -113,38 +108,4 @@ window.excluirQuiz = (id) => {
         localStorage.setItem("quizzes", JSON.stringify(quizzesData));
         window.location.reload();
     }
-};
-
-window.editarQuiz = (id) => {
-    const usuarioLogado = JSON.parse(localStorage.getItem("usuarioLogado"));
-    const quizzes = JSON.parse(localStorage.getItem("quizzes") || "[]");
-    const quiz = quizzes.find(q => q.id === id);
-
-    if (!usuarioLogado) {
-        alert("Você precisa estar logado para editar um quiz!");
-        return;
-    }
-
-    if (!quiz) {
-        alert("Quiz não encontrado!");
-        return;
-    }
-
-    const isTemplate = quiz.creatorType === "template";
-    const isOwner = quiz.creatorEmail === usuarioLogado.email ||
-        (!quiz.creatorEmail && quiz.creator === usuarioLogado.nome);
-
-    if (isTemplate) {
-        alert("Você não pode editar os quizzes de exemplo!");
-        return;
-    }
-
-    if (!isOwner) {
-        alert("Você só pode editar seus próprios quizzes!");
-        return;
-    }
-
-    // Armazena o quiz em edição
-    localStorage.setItem("quizEmEdicao", JSON.stringify(quiz));
-    window.location.href = "editar_quiz.html?id=" + id;
 };
