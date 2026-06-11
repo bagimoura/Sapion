@@ -158,22 +158,41 @@ document.addEventListener("DOMContentLoaded", () => {
                 alert("Adicione pelo menos uma pergunta!");
                 return;
             }
-            let quizzes = JSON.parse(localStorage.getItem("quizzes") || "[]");
-            const usuarioLogado = JSON.parse(localStorage.getItem("usuarioLogado"));
-            const creator = usuarioLogado ? usuarioLogado.nome : "Usuário Anônimo";
-            const creatorEmail = usuarioLogado ? usuarioLogado.email : "";
             
-            quizzes.push({
-                id: Date.now(),
-                titulo: document.getElementById("titulo_quiz").value || "Sem título",
-                questoes,
-                creator: creator,
-                creatorEmail: creatorEmail,
-                creatorType: "user"
-            });
-            localStorage.setItem("quizzes", JSON.stringify(quizzes));
-            alert("Quiz criado com sucesso!");
-            window.location.href = "../base/perfil.html";
+            // pega o input da foto do quiz
+            const imagemQuizInput = document.getElementById("foto_quiz");
+            const arquivoQuiz = imagemQuizInput ? imagemQuizInput.files[0] : null;
+
+            // logica de salvar (igual a salvarQuestao)
+            const finalizarCadastro = (imgQuizBase64 = null) => {
+                let quizzes = JSON.parse(localStorage.getItem("quizzes") || "[]");
+                const usuarioLogado = JSON.parse(localStorage.getItem("usuarioLogado"));
+                const creator = usuarioLogado ? usuarioLogado.nome : "Usuário Anônimo";
+                const creatorEmail = usuarioLogado ? usuarioLogado.email : "";
+                
+                quizzes.push({
+                    id: Date.now(),
+                    titulo: document.getElementById("titulo_quiz").value || "Sem título",
+                    imagem: imgQuizBase64, // joga a imagem geral aqui
+                    questoes,
+                    creator: creator,
+                    creatorEmail: creatorEmail,
+                    creatorType: "user"
+                });
+                
+                localStorage.setItem("quizzes", JSON.stringify(quizzes));
+                alert("Quiz criado com sucesso!");
+                window.location.href = "../base/perfil.html";
+            };
+
+            // le a foto igual faz na pergunta
+            if (arquivoQuiz) {
+                const reader = new FileReader();
+                reader.onload = (evento) => finalizarCadastro(evento.target.result);
+                reader.readAsDataURL(arquivoQuiz);
+            } else {
+                finalizarCadastro(null);
+            }
         });
     }
 

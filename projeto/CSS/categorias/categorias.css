@@ -276,44 +276,48 @@ a{
 /*categorias quizzes (fim) */
 
 /*meus quizzes(inicio)*/
-.acoes-card {
+.acoes-topo-esquerdo {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    z-index: 10;
     display: flex;
-    justify-content: center;
     gap: 8px;
-    margin-top: 5px;
-    margin-bottom: 20px;
-    width: 100%;
 }
 
-.acoes-card button {
+.btn-acao-topo {
+    background: rgba(255, 255, 255, 0.9);
     border: none;
-    padding: 6px 12px;
-    border-radius: 20px;
-    font-family: 'Poppins', sans-serif;
-    font-size: 0.8rem;
-    font-weight: 600;
-    cursor: pointer;
-    color: white;
+    border-radius: 50%;
+    width: 35px;
+    height: 35px;
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 5px;
-    transition: all 0.2s ease;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    cursor: pointer;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    transition: transform 0.2s ease;
 }
 
-.acoes-card button:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 4px 6px rgba(0,0,0,0.15);
-    filter: brightness(1.1);
+.btn-acao-topo:hover {
+    transform: scale(1.1);
 }
 
-.btn-editar {
-    background-color: #f4832c;
+.btn-acao-topo svg {
+    width: 18px;
+    height: 18px;
+    fill: none;
+    stroke-width: 2px;
+    stroke-linecap: round;
+    stroke-linejoin: round;
 }
 
-.btn-excluir {
-    background-color: #e74c3c;
+.btn-editar svg {
+    stroke: #2196F3;
+}
+
+.btn-excluir svg {
+    stroke: #e74c3c;
 }
 
 /*meus quizzes (fim)*/

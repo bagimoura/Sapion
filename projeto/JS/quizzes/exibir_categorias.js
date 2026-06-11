@@ -1,4 +1,3 @@
-// Display all available quizzes on category pages, filtered by category
 document.addEventListener("DOMContentLoaded", () => {
     const categoriaElement = document.querySelector(".grade-quizzes[data-categoria]");
     
@@ -8,14 +7,15 @@ document.addEventListener("DOMContentLoaded", () => {
     const quizzes = JSON.parse(localStorage.getItem("quizzes") || "[]");
     const usuarioLogado = JSON.parse(localStorage.getItem("usuarioLogado"));
     
-    // For category pages, show all quizzes; for "meus-quizzes", filter to show all (templates included)
     let quizzesToDisplay = quizzes;
     
     if (categoria !== "meus-quizzes") {
-        // For category pages, show quizzes that have questions in this category
-        quizzesToDisplay = quizzes.filter(quiz => 
-            quiz.questoes && quiz.questoes.some(q => q.materia === categoria)
-        );
+        quizzesToDisplay = quizzes.filter(quiz => {
+            if (!quiz.questoes || !Array.isArray(quiz.questoes)) return false;
+            return quiz.questoes.some(q => 
+                q.materia && q.materia.toLowerCase() === categoria.toLowerCase()
+            );
+        });
     }
 
     if (quizzesToDisplay.length === 0) {
@@ -24,7 +24,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     categoriaElement.innerHTML = quizzesToDisplay.map(quiz => {
-        const capa = quiz.questoes[0]?.imagem || "../../IMGS/padrao.png";
+        const capa = quiz.imagem || quiz.questoes[0]?.imagem || "../../IMGS/padrao.png";
         const isFavorito = FavoritosManager.isFavorito(quiz.id);
         const creatorDisplay = quiz.creatorType === "template" ? quiz.creator : (quiz.creator || "Você");
         const isTemplate = quiz.creatorType === "template";
@@ -41,17 +41,17 @@ document.addEventListener("DOMContentLoaded", () => {
                 <img src="${capa}" alt="${quiz.titulo}">
                 
                 <h3>${quiz.titulo}</h3>
-                <p style="font-size: 0.75rem; color: #999; margin: 5px 0;">Por: ${creatorDisplay}</p>
+                <p style="font-size: 0.75rem; color: #999; margin: -5px 5px; text-align: center;">Por: ${creatorDisplay}</p>
                 
                 <div class="info-adicional" style="padding: 0 15px 15px; text-align: center;">
                     <p style="font-size: 0.85rem; color: #666; margin-bottom: 10px;">
                         ${quiz.questoes.length} ${quiz.questoes.length === 1 ? 'pergunta' : 'perguntas'}
                     </p>
-                    ${!isTemplate && isOwner ? `<div style="display: flex; gap: 8px; justify-content: center;">
-                        <button onclick="excluirQuiz(${quiz.id})" style="cursor: pointer; border: none; background: #ff4d4d; color: white; padding: 5px 12px; border-radius: 4px; font-size: 0.8rem; font-weight: bold;">
-                            excluir
-                        </button>
-                    </div>` : ''}
+                    <div style="display: flex; gap: 8px; justify-content: center; flex-wrap: wrap;">
+                        ${!isTemplate ? `<button onclick="location.href='../quizzes/exibir_quiz.html?id=${quiz.id}'" style="cursor: pointer; border: none; background: #00473e; color: white; padding: 8px 16px; border-radius: 4px; font-size: 0.8rem; font-weight: bold;">
+                            Realizar Quiz
+                        </button>` : ''}
+                    </div>
                 </div>
             </div>
         `;
@@ -75,3 +75,40 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 });
+
+window.excluirQuiz = (id) => {
+    const usuarioLogado = JSON.parse(localStorage.getItem("usuarioLogado"));
+    const quizzes = JSON.parse(localStorage.getItem("quizzes") || "[]");
+    const quiz = quizzes.find(q => q.id === id);
+
+    if (!usuarioLogado) {
+        alert("Você precisa estar logado para deletar um quiz!");
+        return;
+    }
+
+    if (!quiz) {
+        alert("Quiz não encontrado!");
+        return;
+    }
+
+    const isTemplate = quiz.creatorType === "template";
+    const isOwner = quiz.creatorEmail === usuarioLogado.email ||
+        (!quiz.creatorEmail && quiz.creator === usuarioLogado.nome);
+
+    if (isTemplate) {
+        alert("Você não pode deletar os quizzes de exemplo!");
+        return;
+    }
+
+    if (!isOwner) {
+        alert("Você só pode deletar seus próprios quizzes!");
+        return;
+    }
+
+    if (confirm("Deseja realmente apagar este quiz?")) {
+        let quizzesData = JSON.parse(localStorage.getItem("quizzes") || "[]");
+        quizzesData = quizzesData.filter(q => q.id !== id);
+        localStorage.setItem("quizzes", JSON.stringify(quizzesData));
+        window.location.reload();
+    }
+};

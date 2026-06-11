@@ -450,6 +450,439 @@ h2 {
 
 avaliacao (fim) */
 
+/* QUIZ - Questões e Respostas (início) */
+
+#quiz-container {
+    padding: 30px;
+}
+
+.questoes-container {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.questao-card {
+    background: #f9f9f9;
+    border: 2px solid #e0e0e0;
+    border-radius: 12px;
+    padding: 25px;
+    transition: all 0.3s ease;
+}
+
+.questao-card:hover {
+    border-color: #faae2b;
+    box-shadow: 0 4px 12px rgba(250, 174, 43, 0.15);
+}
+
+.questao-numero {
+    display: inline-block;
+    background: #00473e;
+    color: white;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: bold;
+    margin-bottom: 12px;
+}
+
+.questao-imagem {
+    width: 100%;
+    max-height: 300px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin: 15px 0;
+    display: block;
+}
+
+.questao-enunciado {
+    color: #00473e;
+    font-size: 1.15rem;
+    margin: 15px 0;
+    line-height: 1.6;
+}
+
+.alternativas-container {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 20px;
+}
+
+.alternativa-label {
+    display: flex;
+    align-items: center;
+    padding: 12px 15px;
+    background: white;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-size: 0.95rem;
+}
+
+.alternativa-label:hover {
+    border-color: #faae2b;
+    background: #fffbf7;
+}
+
+.alternativa-label input[type="radio"] {
+    cursor: pointer;
+    margin-right: 12px;
+    width: 18px;
+    height: 18px;
+    accent-color: #faae2b;
+}
+
+.alternativa-label input[type="radio"] {
+    cursor: pointer;
+    margin-right: 12px;
+    width: 20px; /* Levemente maior para melhor visualização */
+    height: 20px;
+    appearance: none; /* Remove o estilo padrão do navegador */
+    -webkit-appearance: none;
+    border: 2px solid #ddd;
+    border-radius: 50%;
+    background-color: white;
+    position: relative;
+    flex-shrink: 0; /* Evita que a bolinha amasse se o texto da alternativa for muito longo */
+    outline: none;
+}
+
+/* Cor da borda quando selecionado */
+.alternativa-label input[type="radio"]:checked {
+    border-color: #faae2b;
+}
+
+/* Cria a bolinha interna pintada quando selecionado */
+.alternativa-label input[type="radio"]:checked::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Centraliza perfeitamente */
+    width: 10px; /* Tamanho da bolinha interna */
+    height: 10px;
+    background-color: #faae2b;
+    border-radius: 50%;
+}
+
+.alternativa-texto {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.botoes-quiz {
+    display: flex;
+    justify-content: center;
+    padding: 30px;
+    gap: 15px;
+}
+
+.btn-finalizar {
+    background: #00473e;
+    color: white;
+    border: none;
+    padding: 12px 30px;
+    border-radius: 25px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-finalizar:hover {
+    background: #faae2b;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* RESULTADOS */
+
+#resultados-container {
+    display: none;
+}
+
+.tela-resultados {
+    padding: 30px;
+    animation: slideIn 0.5s ease;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.resumo-resultados {
+    background: linear-gradient(135deg, #00473e 0%, #003a31 100%);
+    color: white;
+    padding: 40px;
+    border-radius: 15px;
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.resumo-resultados h2 {
+    margin-top: 0;
+    color: white;
+    border-color: #faae2b;
+    font-size: 2rem;
+}
+
+.placar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    margin: 30px 0;
+}
+
+.score-box {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 20px 40px;
+    border-radius: 12px;
+    backdrop-filter: blur(10px);
+}
+
+.score-number {
+    font-size: 3rem;
+    font-weight: bold;
+    color: #faae2b;
+}
+
+.score-label {
+    font-size: 0.9rem;
+    color: #bcd4cb;
+    margin-top: 5px;
+}
+
+.percentual-box {
+    position: relative;
+    width: 150px;
+    height: 150px;
+}
+
+.percentual-circle {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    background: conic-gradient(
+        #faae2b 0deg,
+        #faae2b calc(360deg * var(--percentual, 0%) / 100),
+        rgba(255, 255, 255, 0.2) calc(360deg * var(--percentual, 0%) / 100),
+        rgba(255, 255, 255, 0.2) 360deg
+    );
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.percentual-text {
+    position: absolute;
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #faae2b;
+}
+
+.mensagem-resultado {
+    margin-top: 20px;
+    font-size: 1.1rem;
+}
+
+.detalhes-resultados {
+    background: white;
+    padding: 40px;
+    border-radius: 15px;
+    margin-bottom: 30px;
+}
+
+.detalhes-resultados h3 {
+    color: #00473e;
+    font-size: 1.3rem;
+    margin-top: 0;
+    margin-bottom: 25px;
+    padding-bottom: 10px;
+    border-bottom: 3px solid #faae2b;
+}
+
+.resultado-questao {
+    background: #f9f9f9;
+    border-left: 5px solid #ddd;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.resultado-questao.correta {
+    border-left-color: #2ecc71;
+    background: #f0fdf4;
+}
+
+.resultado-questao.incorreta {
+    border-left-color: #e74c3c;
+    background: #fef2f2;
+}
+
+.resultado-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+
+.resultado-icon {
+    font-size: 1.5rem;
+}
+
+.resultado-numero {
+    color: #00473e;
+    font-size: 1rem;
+}
+
+.resultado-status {
+    margin-left: auto;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+}
+
+.resultado-questao.correta .resultado-status {
+    background: #2ecc71;
+    color: white;
+}
+
+.resultado-questao.incorreta .resultado-status {
+    background: #e74c3c;
+    color: white;
+}
+
+.resultado-imagem {
+    width: 100%;
+    max-height: 250px;
+    object-fit: cover;
+    border-radius: 6px;
+    margin: 12px 0;
+}
+
+.resultado-pergunta {
+    color: #00473e;
+    font-weight: 600;
+    margin: 12px 0;
+    line-height: 1.5;
+}
+
+.resultado-respostas {
+    margin-top: 15px;
+}
+
+.resposta-usuario,
+.resposta-correta {
+    margin-bottom: 12px;
+    padding: 12px;
+    border-radius: 6px;
+    font-size: 0.95rem;
+}
+
+.resposta-usuario {
+    background: #e8f4f8;
+    border-left: 3px solid #3498db;
+}
+
+.resposta-usuario strong {
+    color: #3498db;
+}
+
+.resposta-correta {
+    background: #e8f5e9;
+    border-left: 3px solid #2ecc71;
+}
+
+.resposta-correta strong {
+    color: #2ecc71;
+}
+
+.resposta-usuario p,
+.resposta-correta p {
+    margin: 5px 0 0 0;
+    color: #333;
+}
+
+.botoes-resultados {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    padding: 0 30px 30px;
+}
+
+.btn-voltar {
+    display: inline-block;
+    text-decoration: none;
+    color: white;
+    background: #00473e;
+    font-weight: bold;
+    padding: 12px 30px;
+    border: 2px solid #00473e;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.btn-voltar:hover {
+    background-color: #faae2b;
+    border-color: #faae2b;
+    color: #00473e;
+}
+
+.btn-refazer {
+    display: inline-block;
+    text-decoration: none;
+    color: white;
+    background: #00473e;
+    font-weight: bold;
+    padding: 12px 30px;
+    border: 2px solid #00473e;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.btn-refazer:hover {
+    background-color: #faae2b;
+    border-color: #faae2b;
+    color: white;
+}
+
+.btn-voltar-resultado {
+    display: inline-block;
+    text-decoration: none;
+    color: white;
+    background: #00473e;
+    font-weight: bold;
+    padding: 12px 30px;
+    border: 2px solid #00473e;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.btn-voltar-resultado:hover { 
+    background-color: #faae2b;
+    border-color: #faae2b;
+    color: white; 
+}
+
+/* QUIZ - Questões e Respostas (fim) */
+
 /* responsividade (incio) */
 .hamburger {
     display: none;

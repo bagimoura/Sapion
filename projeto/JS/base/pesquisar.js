@@ -7,6 +7,7 @@ document.addEventListener("DOMContentLoaded", () => {
         if (!input || !container) return;
 
         function filtrar() {
+            console.log("Filtrando quizzes...");
             const termo = input.value.toLowerCase().trim();
             
             if (termo.length === 0) {
@@ -17,9 +18,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
             const todos = JSON.parse(localStorage.getItem("quizzes") || "[]");
 
-            const filtradas = todos.filter(q => 
-                q.nome.toLowerCase().includes(termo) || 
-                q.ingredientes.toLowerCase().includes(termo)
+            const filtradas = todos.filter((q) => 
+                q.titulo.toLowerCase().includes(termo)    
             );
 
             container.innerHTML = "";
@@ -33,8 +33,8 @@ document.addEventListener("DOMContentLoaded", () => {
             filtradas.forEach(q => {
                 const link = document.createElement("a");
                 link.classList.add("item-resultado-busca");
-                link.href = `../quizzes/exibir_quiz.html?id=${r.id}`;
-                link.textContent = r.nome;
+                link.href = `../quizzes/exibir_quiz.html?id=${q.id}`;
+                link.textContent = q.titulo;
                 container.appendChild(link);
             });
         }

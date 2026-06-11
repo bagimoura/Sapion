@@ -2,8 +2,9 @@
     display: none !important;
 }
 
-body {
-    font-family: system-ui;
+
+body{
+    font-family: 'Poppins', sans-serif;
     margin: 0;
     background-color: #f2f7f5;
 }
@@ -51,7 +52,7 @@ body {
     position: relative;
     display: flex;
     align-items: center;
-
+    margin-top: 10px;
     margin-left: 50px;
 }
 
@@ -111,43 +112,9 @@ body {
 /* menu (fim) */
 
 /* pesquisas (inicio) */
-.senha-container {
+.search-container {
     position: relative;
-    margin-bottom: 15px;
-    display: flex;
-    align-items: center;
-}
-
-.senha-container input {
-    margin-bottom: 0;
-    flex: 1;
-    padding-right: 35px; /* Abre espaço para a imagem não sobrepor o texto */
-}
-
-.btn-toggle-senha {
-    position: absolute;
-    right: 8px;
-    background: none;
-    border: none;
-    cursor: pointer;
-    padding: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 24px;
-    height: 24px;
-}
-
-/* Estilo novo para a imagem do ícone */
-.btn-toggle-senha img {
-    width: 20px;
-    height: 20px;
-    opacity: 0.6;
-    transition: opacity 0.2s ease;
-}
-
-.btn-toggle-senha:hover img {
-    opacity: 1; /* O ícone fica mais vivo ao passar o mouse */
+    display: inline-block;
 }
 
 #lista-menu {
@@ -196,91 +163,139 @@ body {
 }
 /* pesquisas (fim) */
 
-/*login form (inicio) */
+/* editar quiz (inicio) */
 
-h1 {
-    color: #00473e;
-    text-align: center;
-    margin-top: 100px;
-    margin-bottom: 40px;
-}
-
-.login-form {
+.editar-quiz {
     background-color: #ffffff;
-    border: 2px solid #00332c;
-    color: #475d5b;
+    border: 2px solid #00473e;
     padding: 30px;
     border-radius: 8px;
     display: flex;
     flex-direction: column;
-    max-width: 400px;
+    max-width: 500px;
     margin: 20px auto;
-    font-family: sans-serif;
+    font-family: 'Poppins', sans-serif;
     box-shadow: 0 5px 15px rgba(0, 51, 44, 0.15);
-    margin-bottom: 250px;
 }
 
-.login-form label {
+.editar-quiz h1 {
+    color: #00473e;
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 25px;
+}
+
+.editar-quiz label {
     margin-bottom: 5px;
     font-weight: bold;
-    color: #00473e;
+    color: #475d5b;
+    display: block;
 }
 
-.login-form input {
+.editar-quiz input[type="text"],
+.editar-quiz input[type="number"],
+.editar-quiz input[type="file"],
+.editar-quiz select,
+.editar-quiz textarea {
     margin-bottom: 15px;
     padding: 10px;
-    border: 1px solid #00332c;
+    border: 1px solid #00473e;
     border-radius: 4px;
+    background-color: #fff;
     color: #475d5b;
     font-size: 14px;
+    width: 100%;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    outline: none;
 }
 
-.login-form input:focus {
-    outline: none;
+.editar-quiz textarea {
+    resize: vertical;
+}
+
+.editar-quiz input:focus,
+.editar-quiz select:focus,
+.editar-quiz textarea:focus {
     border-color: #faae2b;
 }
 
-.senha-container {
-    position: relative;
-    margin-bottom: 15px;
-    display: flex;
-    align-items: center;
+.editar-quiz input[type="file"] {
+    padding: 6px;
 }
 
-.senha-container input {
-    margin-bottom: 0;
-    flex: 1;
-    padding-right: 35px;
-}
-
-.btn-toggle-senha {
-    position: absolute;
-    right: 8px;
-    background: none;
-    border: none;
-    cursor: pointer;
-    padding: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #a0a0a0;
-    transition: color 0.2s ease;
-    width: 20px;
-    height: 20px;
-}
-
-.btn-toggle-senha:hover {
-    color: #00473e;
-}
-
-.btn-toggle-senha svg {
-    stroke: currentColor;
-    stroke-width: 2;
-}
-
-.login-form button {
+.editar-quiz input[type="file"]::file-selector-button {
     background-color: #faae2b;
     color: #00473e;
+    border: none;
+    padding: 8px 12px;
+    margin-right: 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.2s;
+}
+
+.editar-quiz input[type="file"]::file-selector-button:hover {
+    background-color: #475d5b;
+    color: white;
+}
+
+#alternativas {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.alt-item {
+    display: flex;
+    align-items: center;
+    background-color: #f2f7f5;
+    border: 1px solid #bcd4cb;
+    border-radius: 4px;
+    padding: 8px;
+    transition: border-color 0.2s;
+}
+
+.alt-item:focus-within {
+    border-color: #faae2b;
+    background-color: #fff;
+}
+
+.alt-radio {
+    margin-right: 10px;
+    cursor: pointer;
+    accent-color: #00473e;
+}
+
+.alt-texto {
+    flex: 1;
+    border: none !important;
+    background: transparent !important;
+    padding: 5px !important;
+    margin-bottom: 0 !important;
+    outline: none;
+    color: #475d5b;
+}
+
+.btn-remover-alt {
+    background: none;
+    border: none;
+    color: #fa5246;
+    font-size: 1.2rem;
+    font-weight: bold;
+    cursor: pointer;
+    padding: 0 5px;
+    line-height: 1;
+}
+
+.btn-remover-alt:hover {
+    color: #00332c;
+    transform: scale(1.1);
+}
+
+.editar-quiz button {
     padding: 12px;
     border: none;
     border-radius: 4px;
@@ -288,20 +303,125 @@ h1 {
     font-weight: bold;
     font-size: 16px;
     transition: background-color 0.2s;
+    margin-top: 10px;
 }
 
-.login-form button:hover {
+#btn-add-alt {
+    background-color: #bcd4cb;
+    color: #00473e;
+    font-size: 15px;
+    padding: 8px 20px;
+    margin-top: 5px;
+    margin-bottom: 10px; 
+}
+
+#btn-add-alt:hover{
     background-color: #00473e;
-    color: #f2f7f5;
+    color: #ffffff;
 }
 
-.login-form a{
-    margin-top: 20px;
-    color: #fa5246;
-    text-align: center;
+.container-btn-alt, 
+.container-btn-questao {
+    display: flex;
+    justify-content: center;
+    width: 100%;
 }
 
-/*login form (fim) */
+.container-btn-questao button:hover{
+    background-color: #00473e;
+    color: #ffffff;
+}
+
+button[onclick="adicionarQuestao()"] {
+    background-color: #faae2b;
+    color: #00473e;
+    width: 80%;
+    margin-bottom: 10px;
+}
+
+#lista-quizzes {
+    margin: 15px 0;
+}
+
+.card-quizzes-preview {
+    background-color: #f2f7f5;
+    border-left: 5px solid #faae2b;
+    padding: 10px;
+    margin-bottom: 8px;
+    border-radius: 4px;
+    color: #00473e;
+    font-size: 0.9rem;
+}
+
+.botoes-finais {
+    display: flex;
+    gap: 10px;
+    justify-content: space-between;
+}
+
+.botoes-finais button[type="submit"] {
+    flex: 1;
+}
+
+.btn-descartar {
+    flex: 1;
+    background-color: #fa5246;
+    color: white;
+}
+
+.btn-descartar:hover{
+    background-color: #ffa8ba;
+    color: #00473e;
+}
+
+.btn-salvar{
+    background-color: #00473e;
+    color: #ffffff;
+}
+
+.btn-salvar:hover{
+    background-color: #bcd4cb;
+    color: #00473e;
+}
+
+.editar-quiz fieldset {
+    border: 1px solid #475d5b;
+    border-radius: 6px;
+    padding: 15px;
+    margin-bottom: 20px;
+}
+
+.editar-quiz legend {
+    color: #475d5b;
+    font-weight: bold;
+    padding: 0 5px;
+}
+
+.categoria-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+}
+
+.dificuldade label, 
+.categoria-grid label {
+    font-weight: normal;
+    color: #475d5b;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.dificuldade input, 
+.categoria-grid input[type="radio"] {
+    margin-right: 8px;
+    margin-bottom: 0;
+    width: auto;
+    accent-color: #faae2b;
+}
+
+/* editar quiz (fim) */
+
 
 /* responsividade (incio) */
 .hamburger {
@@ -311,12 +431,48 @@ h1 {
 
 @media (max-width: 768px) {
 
+    .editar-quiz {
+        width: 90%;
+        max-width: 100%;
+        padding: 20px 15px;
+        margin: 20px auto;
+    }
+
+    .editar-quiz h1 {
+        font-size: 1.5rem;
+    }
+
+    .categoria-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .editar-quiz input[type="file"]::file-selector-button {
+        width: 100%;
+        margin-bottom: 8px;
+    }
+
+    .hamburger span {
+    display: block;
+    width: 25px;
+    height: 3px;
+    margin: 5px;
+    background-color: #f4832c;
+    border-radius: 3px;
+    transition: 0.3s;
+    }
+
+    .hamburger {
+        display: none;
+        cursor: pointer;
+        margin-left: 10px;
+    }
+
     .hamburger span {
         display: block;
         width: 25px;
         height: 3px;
         margin: 5px;
-        background-color: #faae2b;
+        background-color: #f4832c;
         border-radius: 3px;
         transition: 0.3s;
     }
@@ -325,6 +481,16 @@ h1 {
         display: none;
         cursor: pointer;
         margin-left: 10px;
+    }
+
+    .hamburger span {
+        display: block;
+        width: 25px;
+        height: 3px;
+        margin: 5px;
+        background-color: #f4832c;
+        border-radius: 3px;
+        transition: 0.3s;
     }
 
     .navbar {
@@ -388,7 +554,8 @@ h1 {
 }
 /* responsividade (fim) */
 
+
 footer{
     text-align: center;
-    color: #475d5b;
 }
+
