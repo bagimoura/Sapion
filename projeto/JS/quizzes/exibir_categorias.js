@@ -10,9 +10,12 @@ document.addEventListener("DOMContentLoaded", () => {
     let quizzesToDisplay = quizzes;
     
     if (categoria !== "meus-quizzes") {
-        quizzesToDisplay = quizzes.filter(quiz => 
-            quiz.questoes && quiz.questoes.some(q => q.materia === categoria)
-        );
+        quizzesToDisplay = quizzes.filter(quiz => {
+            if (!quiz.questoes || !Array.isArray(quiz.questoes)) return false;
+            return quiz.questoes.some(q => 
+                q.materia && q.materia.toLowerCase() === categoria.toLowerCase()
+            );
+        });
     }
 
     if (quizzesToDisplay.length === 0) {
@@ -21,7 +24,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     categoriaElement.innerHTML = quizzesToDisplay.map(quiz => {
-        const capa = quiz.questoes[0]?.imagem || "../../IMGS/padrao.png";
+        const capa = quiz.imagem || quiz.questoes[0]?.imagem || "../../IMGS/padrao.png";
         const isFavorito = FavoritosManager.isFavorito(quiz.id);
         const creatorDisplay = quiz.creatorType === "template" ? quiz.creator : (quiz.creator || "Você");
         const isTemplate = quiz.creatorType === "template";
@@ -38,7 +41,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 <img src="${capa}" alt="${quiz.titulo}">
                 
                 <h3>${quiz.titulo}</h3>
-                <p style="font-size: 0.75rem; color: #999; margin: 5px 0;">Por: ${creatorDisplay}</p>
+                <p style="font-size: 0.75rem; color: #999; margin: -5px 5px; text-align: center;">Por: ${creatorDisplay}</p>
                 
                 <div class="info-adicional" style="padding: 0 15px 15px; text-align: center;">
                     <p style="font-size: 0.85rem; color: #666; margin-bottom: 10px;">
@@ -48,8 +51,8 @@ document.addEventListener("DOMContentLoaded", () => {
                         ${!isTemplate ? `<button onclick="location.href='../quizzes/exibir_quiz.html?id=${quiz.id}'" style="cursor: pointer; border: none; background: #00473e; color: white; padding: 8px 16px; border-radius: 4px; font-size: 0.8rem; font-weight: bold;">
                             Realizar Quiz
                         </button>` : ''}
-                        
                     </div>
+                </div>
             </div>
         `;
     }).join("");

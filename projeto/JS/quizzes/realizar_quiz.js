@@ -32,10 +32,44 @@ document.addEventListener("DOMContentLoaded", () => {
     let respostasUsuario = {};
 
     // Renderiza o cabeçalho do quiz
+    const formatador = {
+        matematica: "Matemática",
+        portugues: "Português",
+        historia: "História",
+        fisica: "Física",
+        quimica: "Química",
+        sociologia: "Sociologia",
+        ingles: "Inglês",
+        biologia: "Biologia",
+        geografia: "Geografia",
+        facil: "Fácil",
+        medio: "Médio",
+        dificil: "Difícil"
+    };
+
     function renderizarCabecalho() {
         const cabecalho = document.querySelector(".cabecalho-quiz");
         if (cabecalho) {
             document.querySelector("#v-nome").textContent = quiz.titulo || "Quiz sem título";
+            
+            let materiaRaw = "Indefinida";
+            let dificuldadeRaw = "Indefinida";
+            
+            if (quiz.questoes && quiz.questoes.length > 0) {
+                materiaRaw = quiz.questoes[0].materia || "Indefinida";
+                dificuldadeRaw = quiz.questoes[0].dificuldade || "Indefinida";
+            }
+
+            const materiaFormatada = formatador[materiaRaw.toLowerCase()] || materiaRaw;
+            const dificuldadeFormatada = formatador[dificuldadeRaw.toLowerCase()] || dificuldadeRaw;
+
+            const divMeta = document.getElementById("v-meta");
+            if(divMeta) {
+                divMeta.innerHTML = `
+                    <span class="meta-item">Disciplina: ${materiaFormatada}</span>
+                    <span class="meta-item">Dificuldade: ${dificuldadeFormatada}</span>
+                `;
+            }
         }
     }
 
